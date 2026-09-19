@@ -14,15 +14,23 @@ export type Answer =
 	| { type: 'choice'; choice: string; probabilities?: Record<string, number>; confidence?: number }
 	| { type: 'score'; score: number; probabilities?: Record<string, number>; confidence?: number; legend?: Record<string, string> };
 
+export type Provider = 'openrouter' | 'vercel' | 'typesafe';
+export const PROVIDERS: { id: Provider; name: string; keyHint: string; keysUrl: string }[] = [
+	{ id: 'openrouter', name: 'OpenRouter', keyHint: 'sk-or-v1-…', keysUrl: 'https://openrouter.ai/settings/keys' },
+	{ id: 'vercel', name: 'Vercel AI Gateway', keyHint: 'vck_…', keysUrl: 'https://vercel.com/docs/ai-gateway' },
+	{ id: 'typesafe', name: 'TypeSafe AI', keyHint: 'ts_…', keysUrl: 'https://typesafe.ai' }
+];
+export const MODEL_IDS: Record<Provider, string> = { openrouter: 'typesafe/jev-1.13', vercel: 'typesafe-ai/jev', typesafe: 'jev-latest' };
+
 export type EvaluateResponse = {
 	id?: string;
 	model: string;
 	provider?: string;
+	providerKind: Provider;
 	answers: Record<string, Answer>;
 	usage: { inputTokens: number; outputTokens: number; cost?: number };
 	latencyMs: number;
 };
 
-export const MODEL_ID = 'typesafe/jev-1.13';
 /** 官方标价：输入每百万 token 0.042 美元，输出免费；实际以响应里 usage.cost 为准 */
 export const PRICE_PER_MTOK_INPUT = 0.042;

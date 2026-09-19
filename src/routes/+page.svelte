@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { scenarios, type Scenario } from '$lib/scenarios';
-	import { MODEL_ID, PRICE_PER_MTOK_INPUT, type Answer, type EvaluateResponse, type Input, type Question } from '$lib/types';
+	import { MODEL_IDS, PROVIDERS, PRICE_PER_MTOK_INPUT, type Answer, type EvaluateResponse, type Input, type Provider, type Question } from '$lib/types';
 
 	// ---------- 可编辑的问题模型 ----------
 	type QRow = {
@@ -70,13 +70,18 @@
 	let runs = $state<Run[]>([]);
 	let current = $state<Run | null>(null);
 	let theme = $state<'swiss' | 'candy'>('swiss');
-	// BYOK：key 只放 localStorage，随请求头发给 /api/evaluate
-	let apiKey = $state('');
+	// BYOK：服务商 + 对应 key 都只放 localStorage，随请求头发给 /api/evaluate
+	let provider = $state<Provider>('openrouter');
+	let keys = $state<Record<Provider, string>>({ openrouter: '', vercel: '', typesafe: '' });
 	let keyOpen = $state(false);
 	let keyDraft = $state('');
-	const keyMasked = $derived(apiKey ? `${apiKey.slice(0, 10)}…${apiKey.slice(-4)}` : '');
-	function saveKey() { apiKey = keyDraft.trim(); try { apiKey ? localStorage.setItem('openrouter-key', apiKey) : localStorage.removeItem('openrouter-key'); } catch {} keyOpen = false; }
+	const apiKey = $derived(keys[provider]);
+	const providerInfo = $derived(PROVIDERS.find((p) => p.id === provider)!);
+	const keyMasked = $derived(apiKey ? `${apiKey.slice(0, 8)}…${apiKey.slice(-4)}` : '');
+	function persist() { try { localStorage.setItem('jev-provider', provider); localStorage.setItem('jev-keys', JSON.stringify(keys)); } catch {} }
+	function saveKey() { keys[provider] = keyDraft.trim(); persist(); keyOpen = false; }
 	function clearKey() { keyDraft = ''; saveKey(); }
+	function pickProvider(p: Provider) { provider = p; keyDraft = keys[p]; persist(); }
 
 	const stateJsonError = $derived.by(() => {
 		if (!stateJson) return null;
@@ -85,7 +90,7 @@
 	const requestBody = $derived.by(() => {
 		let s: Input = stateText;
 		if (stateJson) { try { s = JSON.parse(stateText) as Input; } catch { s = stateText; } }
-		return { model: MODEL_ID, state: s, questions: toQuestions(rows) };
+		return { model: MODEL_IDS[provider], state: s, questions: toQuestions(rows) };
 	});
 
 	function loadScenario(s: Scenario) {
@@ -111,7 +116,7 @@
 		const request = { state: requestBody.state, questions: requestBody.questions };
 		const n = runs.length + 1;
 		try {
-			const res = await fetch('/api/evaluate', { method: 'POST', headers: { 'content-type': 'application/json', ...(apiKey ? { 'x-openrouter-key': apiKey } : {}) }, body: JSON.stringify(request) });
+			const res = await fetch('/api/evaluate', { method: 'POST', headers: { 'content-type': 'application/json', 'x-provider': provider, ...(apiKey ? { 'x-api-key': apiKey } : {}) }, body: JSON.stringify(request) });
 			const data = (await res.json()) as EvaluateResponse & { error?: string };
 			const clientMs = Math.round(performance.now() - t0);
 			const r: Run = res.ok ? { n, request, response: data, clientMs } : { n, request, error: data.error ?? `HTTP ${res.status}`, clientMs };
@@ -130,8 +135,11 @@
 	onMount(() => {
 		const fromUrl = new URLSearchParams(location.search).get('theme');
 		try {
-			apiKey = localStorage.getItem('openrouter-key') ?? '';
-			keyDraft = apiKey;
+			const p = localStorage.getItem('jev-provider') as Provider | null;
+			if (p && p in keys) provider = p;
+			const k = localStorage.getItem('jev-keys');
+			if (k) keys = { ...keys, ...(JSON.parse(k) as Partial<Record<Provider, string>>) };
+			keyDraft = keys[provider];
 			const saved = localStorage.getItem('jev-theme');
 			if (fromUrl === 'candy' || fromUrl === 'swiss') theme = fromUrl;
 			else if (saved === 'candy' || saved === 'swiss') theme = saved;
@@ -159,20 +167,20 @@
 		<div class="title">
 			<div>
 				<h1>Jev Playground</h1>
-				<div class="sub">State in · typed probabilities out · via OpenRouter</div>
+				<div class="sub">State in · typed probabilities out · via {providerInfo.name}</div>
 			</div>
 		</div>
 		<div class="meta">
-			<span class="tag ink">{MODEL_ID}</span>
+			<span class="tag ink">{MODEL_IDS[provider]}</span>
 			<span class="tag">$0.042 / M input</span>
 			<span class="tag">output free</span>
-			<span class="tag">alpha.decisions</span>
+			<span class="tag">{provider === 'vercel' ? 'experimental_evaluate' : provider === 'typesafe' ? '/v1/systemone' : 'alpha.decisions'}</span>
 			<span class="theme-switch">
 				<button class={theme === 'swiss' ? 'on' : ''} onclick={() => (theme = 'swiss')}>Swiss</button>
 				<button class={theme === 'candy' ? 'on' : ''} onclick={() => (theme = 'candy')}>Candy</button>
 			</span>
-			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="OpenRouter API key，只存在你的浏览器里">
-				{apiKey ? `Key · ${keyMasked}` : 'Key · 未设置'}
+			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="API key 只存在你的浏览器里">
+				{apiKey ? `${providerInfo.name} · ${keyMasked}` : `${providerInfo.name} · 未设置 key`}
 			</button>
 		</div>
 	</header>
@@ -180,12 +188,17 @@
 	{#if keyOpen}
 		<div class="keypanel">
 			<div class="section-head">
-				<h3>OpenRouter API key · BYOK</h3>
+				<h3>API key · BYOK</h3>
 				<span class="tag">只存在这台浏览器的 localStorage</span>
 			</div>
-			<p class="body-note">每次请求把它放在请求头里转给 OpenRouter，服务端不保存、不记录。用完可以在这里清掉。到 <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noreferrer">openrouter.ai/settings/keys</a> 创建一个。</p>
+			<div class="toggle providers">
+				{#each PROVIDERS as p (p.id)}
+					<button class={provider === p.id ? 'on' : ''} onclick={() => pickProvider(p.id)}>{p.name}{keys[p.id] ? ' ✓' : ''}</button>
+				{/each}
+			</div>
+			<p class="body-note">每次请求把 key 放在请求头里转给 {providerInfo.name}，服务端不保存、不记录，用完可以在这里清掉。模型：<code>{MODEL_IDS[provider]}</code>。没有 key 到 <a href={providerInfo.keysUrl} target="_blank" rel="noreferrer">{providerInfo.keysUrl.replace('https://', '')}</a> 拿。</p>
 			<div class="keyrow">
-				<input class="field mono" type="password" placeholder="sk-or-v1-…" bind:value={keyDraft} onkeydown={(e) => e.key === 'Enter' && saveKey()} />
+				<input class="field mono" type="password" placeholder={providerInfo.keyHint} bind:value={keyDraft} onkeydown={(e) => e.key === 'Enter' && saveKey()} />
 				<button class="btn primary" onclick={saveKey}>保存到本地</button>
 				<button class="btn ghost" onclick={clearKey} disabled={!apiKey}>清除</button>
 			</div>
