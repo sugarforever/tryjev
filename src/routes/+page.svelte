@@ -167,7 +167,7 @@
 		<div class="title">
 			<div>
 				<h1>Jev Playground</h1>
-				<div class="sub">State in · typed probabilities out · via {providerInfo.name}</div>
+				<p class="sub">State in · typed probabilities out · via {providerInfo.name}</p>
 			</div>
 		</div>
 		<div class="meta">
