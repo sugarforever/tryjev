@@ -4,9 +4,12 @@ import { OpenRouter } from '@openrouter/sdk';
 import { MODEL_ID, type EvaluateRequest, type EvaluateResponse } from '$lib/types';
 
 // 唯一的服务端代码：把 state + questions 交给 OpenRouter 的 decisions 接口，顺便计时
+// BYOK：浏览器把自己的 key 放在 x-openrouter-key 头里带过来，只用于这一次请求，服务端不落盘不记录；
+// 没带的话退回到服务端环境变量（自己部署时可以不开放 BYOK）
 export async function POST({ request }) {
-	if (!env.OPENROUTER_API_KEY) {
-		return json({ error: '未设置 OPENROUTER_API_KEY 环境变量' }, { status: 500 });
+	const apiKey = request.headers.get('x-openrouter-key')?.trim() || env.OPENROUTER_API_KEY;
+	if (!apiKey) {
+		return json({ error: '没有 OpenRouter key：点右上角「Key」填一个，只存在你的浏览器里' }, { status: 401 });
 	}
 	let body: EvaluateRequest;
 	try {
@@ -18,7 +21,7 @@ export async function POST({ request }) {
 		return json({ error: '至少需要一个问题' }, { status: 400 });
 	}
 
-	const openrouter = new OpenRouter({ apiKey: env.OPENROUTER_API_KEY });
+	const openrouter = new OpenRouter({ apiKey });
 	const started = performance.now();
 	try {
 		const decision = await openrouter.alpha.decisions.create({
@@ -35,6 +38,7 @@ export async function POST({ request }) {
 		return json(payload);
 	} catch (e) {
 		const err = e as Error & { statusCode?: number; body?: string };
-		return json({ error: err.message || String(e), detail: err.body }, { status: 502 });
+		const status = err.statusCode === 401 || err.statusCode === 403 ? 401 : 502;
+		return json({ error: err.message || String(e), detail: err.body }, { status });
 	}
 }

@@ -70,6 +70,13 @@
 	let runs = $state<Run[]>([]);
 	let current = $state<Run | null>(null);
 	let theme = $state<'swiss' | 'candy'>('swiss');
+	// BYOK：key 只放 localStorage，随请求头发给 /api/evaluate
+	let apiKey = $state('');
+	let keyOpen = $state(false);
+	let keyDraft = $state('');
+	const keyMasked = $derived(apiKey ? `${apiKey.slice(0, 10)}…${apiKey.slice(-4)}` : '');
+	function saveKey() { apiKey = keyDraft.trim(); try { apiKey ? localStorage.setItem('openrouter-key', apiKey) : localStorage.removeItem('openrouter-key'); } catch {} keyOpen = false; }
+	function clearKey() { keyDraft = ''; saveKey(); }
 
 	const stateJsonError = $derived.by(() => {
 		if (!stateJson) return null;
@@ -104,7 +111,7 @@
 		const request = { state: requestBody.state, questions: requestBody.questions };
 		const n = runs.length + 1;
 		try {
-			const res = await fetch('/api/evaluate', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request) });
+			const res = await fetch('/api/evaluate', { method: 'POST', headers: { 'content-type': 'application/json', ...(apiKey ? { 'x-openrouter-key': apiKey } : {}) }, body: JSON.stringify(request) });
 			const data = (await res.json()) as EvaluateResponse & { error?: string };
 			const clientMs = Math.round(performance.now() - t0);
 			const r: Run = res.ok ? { n, request, response: data, clientMs } : { n, request, error: data.error ?? `HTTP ${res.status}`, clientMs };
@@ -123,6 +130,8 @@
 	onMount(() => {
 		const fromUrl = new URLSearchParams(location.search).get('theme');
 		try {
+			apiKey = localStorage.getItem('openrouter-key') ?? '';
+			keyDraft = apiKey;
 			const saved = localStorage.getItem('jev-theme');
 			if (fromUrl === 'candy' || fromUrl === 'swiss') theme = fromUrl;
 			else if (saved === 'candy' || saved === 'swiss') theme = saved;
@@ -162,8 +171,26 @@
 				<button class={theme === 'swiss' ? 'on' : ''} onclick={() => (theme = 'swiss')}>Swiss</button>
 				<button class={theme === 'candy' ? 'on' : ''} onclick={() => (theme = 'candy')}>Candy</button>
 			</span>
+			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="OpenRouter API key，只存在你的浏览器里">
+				{apiKey ? `Key · ${keyMasked}` : 'Key · 未设置'}
+			</button>
 		</div>
 	</header>
+
+	{#if keyOpen}
+		<div class="keypanel">
+			<div class="section-head">
+				<h3>OpenRouter API key · BYOK</h3>
+				<span class="tag">只存在这台浏览器的 localStorage</span>
+			</div>
+			<p class="body-note">每次请求把它放在请求头里转给 OpenRouter，服务端不保存、不记录。用完可以在这里清掉。到 <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noreferrer">openrouter.ai/settings/keys</a> 创建一个。</p>
+			<div class="keyrow">
+				<input class="field mono" type="password" placeholder="sk-or-v1-…" bind:value={keyDraft} onkeydown={(e) => e.key === 'Enter' && saveKey()} />
+				<button class="btn primary" onclick={saveKey}>保存到本地</button>
+				<button class="btn ghost" onclick={clearKey} disabled={!apiKey}>清除</button>
+			</div>
+		</div>
+	{/if}
 
 	<div class="grid">
 		<!-- 场景 -->

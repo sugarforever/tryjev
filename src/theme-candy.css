@@ -134,3 +134,7 @@ html[data-theme='candy'] {
 [data-theme='candy'] .theme-switch { border: 3px solid #000; box-shadow: 4px 4px 0 #000; background: #fff; }
 [data-theme='candy'] .theme-switch button { font-weight: 800; color: #000; text-decoration: none; }
 [data-theme='candy'] .theme-switch button.on { background: var(--green); }
+
+[data-theme='candy'] .keypanel { border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0 #000; }
+[data-theme='candy'] .keypanel .body-note { color: #000; }
+[data-theme='candy'] .keybtn.missing { background: #fe90e8; color: #000; border-color: #000; }

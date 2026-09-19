@@ -170,3 +170,12 @@ h3 { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
 
 .spin { display: inline-block; width: 12px; height: 12px; border: 2px solid var(--paper); border-top-color: transparent; border-radius: 50%; animation: spin 700ms linear infinite; vertical-align: -2px; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* BYOK key 面板 */
+.keybtn { white-space: nowrap; }
+.keybtn.missing { border-color: var(--accent); color: var(--accent); }
+.keypanel { margin: 18px 0 8px; padding: 16px 20px; border: var(--hair); background: var(--panel); max-width: 900px; }
+.keypanel .body-note { margin: 8px 0 12px; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+.keypanel a { color: var(--ink); }
+.keyrow { display: flex; gap: 12px; align-items: center; }
+.keyrow .field { flex: 1; }
