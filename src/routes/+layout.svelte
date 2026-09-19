@@ -1,7 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	import '../theme-candy.css';
+	import { dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	let { children, data } = $props();
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	const title = 'Jev Playground · typed decisions from a fast decision model';
 	const description =
 		'Try Jev, TypeSafe AI’s System One decision model: give it a state and typed questions (noul, choice, score), get back probabilities instead of text. Five preset scenarios, bring your own key from OpenRouter, Vercel AI Gateway or TypeSafe.';
