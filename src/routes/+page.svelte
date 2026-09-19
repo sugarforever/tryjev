@@ -69,7 +69,7 @@
 	let busy = $state(false);
 	let runs = $state<Run[]>([]);
 	let current = $state<Run | null>(null);
-	let theme = $state<'swiss' | 'candy'>('swiss');
+	let theme = $state<'swiss' | 'candy'>('candy');
 	// BYOK：服务商 + 对应 key 都只放 localStorage，随请求头发给 /api/evaluate
 	let provider = $state<Provider>('openrouter');
 	let keys = $state<Record<Provider, string>>({ openrouter: '', vercel: '', typesafe: '' });
