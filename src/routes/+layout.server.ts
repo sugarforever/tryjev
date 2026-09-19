@@ -1,2 +1,4 @@
-// The deployed origin is only known at request time; the layout builds canonical / og:url from it.
-export const load = ({ url }) => ({ origin: url.origin });
+import { SITE_URL } from '$lib/site';
+
+// Canonical / og:url / og:image always point at the public site, whatever host served the page
+export const load = () => ({ origin: SITE_URL });

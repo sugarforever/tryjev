@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: /sitemap.xml
+Sitemap: https://www.tryjev.xyz/sitemap.xml

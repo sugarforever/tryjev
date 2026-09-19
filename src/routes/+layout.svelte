@@ -24,6 +24,7 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={data.origin + '/'} />
+	<meta name="author" content="VerySmallWoods" />
 	<meta name="robots" content="index, follow, max-image-preview:large" />
 	<meta name="theme-color" content="#f7cb46" />
 	<meta name="keywords" content="Jev, TypeSafe AI, System One model, decision model, noul, choice, score, OpenRouter, Vercel AI Gateway, playground" />

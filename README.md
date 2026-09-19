@@ -1,5 +1,7 @@
 # tryjev
 
+Live at **https://www.tryjev.xyz/**
+
 A playground for Jev, TypeSafe AI's fast decision model: preset scenarios on the left, an editable state plus typed questions in the middle, typed answers with probabilities on the right. Bring your own key and pick a provider: OpenRouter (`typesafe/jev-1.13`, `alpha.decisions`), Vercel AI Gateway (`typesafe-ai/jev`, AI SDK `experimental_evaluate`) or TypeSafe's own API (`jev-latest`, `POST /v1/systemone`).
 
 ## Run
