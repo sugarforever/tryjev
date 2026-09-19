@@ -3,7 +3,7 @@
 	import { scenarios, type Scenario } from '$lib/scenarios';
 	import { MODEL_IDS, PROVIDERS, PRICE_PER_MTOK_INPUT, type Answer, type EvaluateResponse, type Input, type Provider, type Question } from '$lib/types';
 
-	// ---------- 可编辑的问题模型 ----------
+	// ---------- editable question model ----------
 	type QRow = {
 		key: string;
 		id: string;
@@ -40,7 +40,7 @@
 			} else if (r.type === 'score') {
 				out[id] = { type: 'score', instructions: r.instructions, criteria: r.score.map((s) => s.trim()).filter(Boolean) };
 			} else {
-				// noul 的 criteria 要么 true/false 都给，要么不给
+				// noul criteria: either both true/false or none
 				const t = r.noul.t.trim(), f = r.noul.f.trim();
 				out[id] = { type: 'noul', instructions: r.instructions, ...(t && f ? { criteria: { true: t, false: f } } : {}) };
 			}
@@ -59,7 +59,7 @@
 		clientMs: number;
 	};
 
-	// ---------- 状态 ----------
+	// ---------- state ----------
 	let active = $state<Scenario>(scenarios[0]);
 	let stateText = $state(stateToText(scenarios[0].request.state));
 	let stateJson = $state(typeof scenarios[0].request.state !== 'string');
@@ -70,7 +70,7 @@
 	let runs = $state<Run[]>([]);
 	let current = $state<Run | null>(null);
 	let theme = $state<'swiss' | 'candy'>('candy');
-	// BYOK：服务商 + 对应 key 都只放 localStorage，随请求头发给 /api/evaluate
+	// BYOK: provider + per-provider keys live in localStorage only and ride along as request headers
 	let provider = $state<Provider>('openrouter');
 	let keys = $state<Record<Provider, string>>({ openrouter: '', vercel: '', typesafe: '' });
 	let keyOpen = $state(false);
@@ -131,7 +131,7 @@
 		}
 	}
 
-	// 主题：?theme=candy 优先，其次 localStorage；写到 <html data-theme>
+	// theme: ?theme=candy first, then localStorage; written to <html data-theme>
 	onMount(() => {
 		const fromUrl = new URLSearchParams(location.search).get('theme');
 		try {
@@ -153,7 +153,7 @@
 		try { localStorage.setItem('jev-theme', theme); } catch {}
 	});
 
-	// ---------- 响应展示 ----------
+	// ---------- response rendering ----------
 	const sortedProbs = (p: Record<string, number>) => Object.entries(p).sort((x, y) => y[1] - x[1]);
 	const scoreEntries = (p: Record<string, number>) => Object.entries(p).sort((x, y) => Number(x[0]) - Number(y[0]));
 	const scoreLabels = (q?: Question) => (q && q.type === 'score' ? q.criteria : []);
@@ -171,6 +171,12 @@
 			</div>
 		</div>
 		<div class="meta">
+			<label class="provider-pick">
+				<span class="label">Provider</span>
+				<select class="field" value={provider} onchange={(e) => pickProvider((e.currentTarget as HTMLSelectElement).value as Provider)}>
+					{#each PROVIDERS as p (p.id)}<option value={p.id}>{p.name}{keys[p.id] ? ' ✓' : ''}</option>{/each}
+				</select>
+			</label>
 			<span class="tag ink">{MODEL_IDS[provider]}</span>
 			<span class="tag">$0.042 / M input</span>
 			<span class="tag">output free</span>
@@ -179,8 +185,8 @@
 				<button class={theme === 'swiss' ? 'on' : ''} onclick={() => (theme = 'swiss')}>Swiss</button>
 				<button class={theme === 'candy' ? 'on' : ''} onclick={() => (theme = 'candy')}>Candy</button>
 			</span>
-			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="API key 只存在你的浏览器里">
-				{apiKey ? `${providerInfo.name} · ${keyMasked}` : `${providerInfo.name} · 未设置 key`}
+			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="Your API key stays in this browser">
+				{apiKey ? `Key · ${keyMasked}` : 'Key · not set'}
 			</button>
 		</div>
 	</header>
@@ -188,27 +194,27 @@
 	{#if keyOpen}
 		<div class="keypanel">
 			<div class="section-head">
-				<h3>API key · BYOK</h3>
-				<span class="tag">只存在这台浏览器的 localStorage</span>
+				<h3>API key · bring your own</h3>
+				<span class="tag">stored only in this browser's localStorage</span>
 			</div>
 			<div class="toggle providers">
 				{#each PROVIDERS as p (p.id)}
 					<button class={provider === p.id ? 'on' : ''} onclick={() => pickProvider(p.id)}>{p.name}{keys[p.id] ? ' ✓' : ''}</button>
 				{/each}
 			</div>
-			<p class="body-note">每次请求把 key 放在请求头里转给 {providerInfo.name}，服务端不保存、不记录，用完可以在这里清掉。模型：<code>{MODEL_IDS[provider]}</code>。没有 key 到 <a href={providerInfo.keysUrl} target="_blank" rel="noreferrer">{providerInfo.keysUrl.replace('https://', '')}</a> 拿。</p>
+			<p class="body-note">Each request forwards the key in a header to {providerInfo.name}; the server never stores or logs it, and you can clear it here any time. Model: <code>{MODEL_IDS[provider]}</code>. Get a key at <a href={providerInfo.keysUrl} target="_blank" rel="noreferrer">{providerInfo.keysUrl.replace('https://', '')}</a>.</p>
 			<div class="keyrow">
 				<input class="field mono" type="password" placeholder={providerInfo.keyHint} bind:value={keyDraft} onkeydown={(e) => e.key === 'Enter' && saveKey()} />
-				<button class="btn primary" onclick={saveKey}>保存到本地</button>
-				<button class="btn ghost" onclick={clearKey} disabled={!apiKey}>清除</button>
+				<button class="btn primary" onclick={saveKey}>Save locally</button>
+				<button class="btn ghost" onclick={clearKey} disabled={!apiKey}>Clear</button>
 			</div>
 		</div>
 	{/if}
 
 	<div class="grid">
-		<!-- 场景 -->
+		<!-- scenarios -->
 		<aside class="col">
-			<span class="kicker">01 场景</span>
+			<span class="kicker">01 Scenarios</span>
 			<div class="scenarios">
 				{#each scenarios as s (s.id)}
 					<button data-color={s.color} class="scenario {active.id === s.id ? 'active' : ''}" onclick={() => loadScenario(s)}>
@@ -220,7 +226,7 @@
 			</div>
 			{#if runs.length > 0}
 				<div>
-					<span class="label">历史（点一下回看）</span>
+					<span class="label">History (click to revisit)</span>
 					<div class="history">
 						{#each runs.slice(0, 8) as r (r.n)}
 							<div class="hrow" role="button" tabindex="0" onclick={() => (current = r)} onkeydown={(e) => e.key === 'Enter' && (current = r)}>
@@ -234,21 +240,21 @@
 			{/if}
 		</aside>
 
-		<!-- 请求 -->
+		<!-- request -->
 		<section class="col">
 			<div class="section-head">
-				<span class="kicker">02 请求</span>
+				<span class="kicker">02 Request</span>
 				<div class="toggle">
-					<button class={reqView === 'form' ? 'on' : ''} onclick={() => (reqView = 'form')}>表单</button>
+					<button class={reqView === 'form' ? 'on' : ''} onclick={() => (reqView = 'form')}>Form</button>
 					<button class={reqView === 'json' ? 'on' : ''} onclick={() => (reqView = 'json')}>JSON</button>
 				</div>
 			</div>
 
 			<div class="runbar">
 				<button class="btn primary" disabled={busy || !!stateJsonError || rows.length === 0} onclick={run}>
-					{#if busy}<span class="spin"></span> 评估中{:else}▶ Evaluate{/if}
+					{#if busy}<span class="spin"></span> Evaluating{:else}▶ Evaluate{/if}
 				</button>
-				<span class="hint">一次请求，{Object.keys(requestBody.questions).length} 个问题并行评估 · ⌘⏎</span>
+				<span class="hint">One request, {Object.keys(requestBody.questions).length} questions evaluated in parallel · ⌘⏎</span>
 			</div>
 
 			{#if reqView === 'json'}
@@ -256,8 +262,8 @@
 			{:else}
 				<div class="card">
 					<div class="section-head">
-						<h3>State · 状态</h3>
-						<label class="state-mode"><input type="checkbox" bind:checked={stateJson} /> 作为 JSON 发送</label>
+						<h3>State</h3>
+						<label class="state-mode"><input type="checkbox" bind:checked={stateJson} /> send as JSON</label>
 					</div>
 					{#if active.variants}
 						<div class="variants">
@@ -267,17 +273,17 @@
 						</div>
 					{/if}
 					<textarea class="field {stateJson ? 'mono' : ''}" rows={stateJson ? 10 : 5} bind:value={stateText}></textarea>
-					{#if stateJsonError}<div class="error" style="margin-top:10px;padding:8px">JSON 解析失败：{stateJsonError}</div>{/if}
+					{#if stateJsonError}<div class="error" style="margin-top:10px;padding:8px">Invalid JSON: {stateJsonError}</div>{/if}
 				</div>
 
 				<div class="card">
 					<div class="section-head">
-						<h3>Questions · 问题</h3>
-						<span class="tag">{rows.length} 个 · 一次并发</span>
+						<h3>Questions</h3>
+						<span class="tag">{rows.length} · one parallel call</span>
 					</div>
 					{#each rows as r (r.key)}
 						<div class="qcard {r.type}">
-							<button class="del" title="删除" onclick={() => removeRow(r.key)}>×</button>
+							<button class="del" title="Remove" onclick={() => removeRow(r.key)}>×</button>
 							<div class="row">
 								<div><span class="label">id</span><input class="field mono" bind:value={r.id} /></div>
 								<div>
@@ -293,19 +299,19 @@
 
 							{#if r.type === 'choice'}
 								<div class="crit">
-									<span class="label">criteria · 选项 → 描述</span>
+									<span class="label">criteria · option → description</span>
 									{#each r.choice as c, i}
 										<div class="line">
 											<input class="field mono" bind:value={c.name} placeholder="option" />
-											<input class="field" bind:value={c.desc} placeholder="描述（可空）" />
+											<input class="field" bind:value={c.desc} placeholder="description (optional)" />
 											<button class="btn ghost" onclick={() => (r.choice = r.choice.filter((_, j) => j !== i))}>−</button>
 										</div>
 									{/each}
-									<div><button class="btn ghost" onclick={() => r.choice.push({ name: '', desc: '' })}>+ 选项</button></div>
+									<div><button class="btn ghost" onclick={() => r.choice.push({ name: '', desc: '' })}>+ option</button></div>
 								</div>
 							{:else if r.type === 'score'}
 								<div class="crit">
-									<span class="label">criteria · 有序档位，从低到高</span>
+									<span class="label">criteria · ordered levels, low to high</span>
 									{#each r.score as _, i}
 										<div class="line score">
 											<span class="idx">{i}</span>
@@ -313,13 +319,13 @@
 											<button class="btn ghost" disabled={r.score.length <= 2} onclick={() => (r.score = r.score.filter((_, j) => j !== i))}>−</button>
 										</div>
 									{/each}
-									<div><button class="btn ghost" onclick={() => r.score.push('')}>+ 档位</button></div>
+									<div><button class="btn ghost" onclick={() => r.score.push('')}>+ level</button></div>
 								</div>
 							{:else}
 								<div class="crit">
-									<span class="label">criteria · 可选，说明 true / false 各指什么（要给就两个都给）</span>
-									<div class="line bool"><span class="idx">true</span><input class="field" bind:value={r.noul.t} placeholder="可空" /></div>
-									<div class="line bool"><span class="idx">false</span><input class="field" bind:value={r.noul.f} placeholder="可空" /></div>
+									<span class="label">criteria · optional, what true / false mean (give both or neither)</span>
+									<div class="line bool"><span class="idx">true</span><input class="field" bind:value={r.noul.t} placeholder="optional" /></div>
+									<div class="line bool"><span class="idx">false</span><input class="field" bind:value={r.noul.f} placeholder="optional" /></div>
 								</div>
 							{/if}
 						</div>
@@ -333,18 +339,18 @@
 			{/if}
 		</section>
 
-		<!-- 响应 -->
+		<!-- response -->
 		<section class="col sticky">
 			<div class="section-head">
-				<span class="kicker">03 响应</span>
+				<span class="kicker">03 Response</span>
 				<div class="toggle">
-					<button class={resView === 'cards' ? 'on' : ''} onclick={() => (resView = 'cards')}>图</button>
+					<button class={resView === 'cards' ? 'on' : ''} onclick={() => (resView = 'cards')}>Cards</button>
 					<button class={resView === 'json' ? 'on' : ''} onclick={() => (resView = 'json')}>JSON</button>
 				</div>
 			</div>
 
 			{#if !current}
-				<div class="empty">点 Evaluate，这里出概率。</div>
+				<div class="empty">Hit Evaluate and the probabilities land here.</div>
 			{:else if current.error}
 				<div class="error">{current.error}</div>
 			{:else if current.response && resView === 'json'}
@@ -412,7 +418,7 @@
 
 				{#if confidences(res).length}
 					<div class="card small">
-						<span class="label">confidence（choice / score 附带）</span>
+						<span class="label">confidence (comes with choice / score)</span>
 						<div class="conf">
 							{#each confidences(res) as [k, v] (k)}
 								<span class="tag {v < 0.3 ? 'accent' : 'ink'}">{k}: {v.toFixed(2)}</span>

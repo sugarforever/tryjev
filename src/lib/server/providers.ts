@@ -1,4 +1,4 @@
-// 三家服务商的适配：都收同一份 { state, questions }，都吐同一份 EvaluateResponse。
+// One adapter per provider: same { state, questions } in, same EvaluateResponse out.
 import { OpenRouter } from '@openrouter/sdk';
 import { experimental_evaluate as evaluate } from 'ai';
 import { createGateway } from '@ai-sdk/gateway';
@@ -13,7 +13,7 @@ async function viaOpenRouter(apiKey: string, req: EvaluateRequest, model: string
 	return { answers: d.answers as Record<string, Answer>, usage: d.usage, model: d.model, id: d.id, provider: d.provider };
 }
 
-// TypeSafe 官方 API：和 OpenRouter 的 decisions 是同一套字段，只是 usage 用 snake_case
+// TypeSafe's own API: same fields as OpenRouter decisions, usage in snake_case
 async function viaTypeSafe(apiKey: string, req: EvaluateRequest, model: string): Promise<Raw> {
 	const res = await fetch('https://api.typesafe.ai/v1/systemone', {
 		method: 'POST',
@@ -26,7 +26,7 @@ async function viaTypeSafe(apiKey: string, req: EvaluateRequest, model: string):
 	return { answers: d.answers, usage: { inputTokens: d.usage.input_tokens, outputTokens: d.usage.output_tokens }, model: d.model, provider: 'typesafe' };
 }
 
-// Vercel AI Gateway：走 AI SDK 的 experimental_evaluate；那边 noul 叫 boolean，confidence 在 providerMetadata 里
+// Vercel AI Gateway via AI SDK experimental_evaluate: noul is called boolean there and confidence lives in providerMetadata
 async function viaVercel(apiKey: string, req: EvaluateRequest, model: string): Promise<Raw> {
 	const gateway = createGateway({ apiKey });
 	const questions: Record<string, unknown> = {};

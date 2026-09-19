@@ -1,4 +1,4 @@
-// 和 @openrouter/sdk 的 decisions 类型对齐，只保留 playground 用到的字段
+// Shared request/response types across the three providers; only what the playground needs
 export type JSONValue = string | number | boolean | null | JSONValue[] | { [key: string]: JSONValue };
 export type Input = string | { [key: string]: JSONValue } | JSONValue[];
 
@@ -32,5 +32,5 @@ export type EvaluateResponse = {
 	latencyMs: number;
 };
 
-/** 官方标价：输入每百万 token 0.042 美元，输出免费；实际以响应里 usage.cost 为准 */
+/** List price: $0.042 per 1M input tokens, output free; usage.cost from the response wins when present */
 export const PRICE_PER_MTOK_INPUT = 0.042;

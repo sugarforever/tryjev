@@ -1,5 +1,5 @@
-/* BlockFrame 糖果色块主题：html[data-theme="candy"] 时覆盖 Swiss 默认样式。
-   规则：4px 黑边 + 8px 硬阴影，无圆角、无渐变、无柔和阴影；色块只用六个糖果色。 */
+/* BlockFrame candy theme: overrides the Swiss defaults under html[data-theme="candy"].
+   Rules: 4px black borders + 8px hard shadows, no radius, no gradients, no soft shadows; six candy colors only. */
 html[data-theme='candy'] {
   --pink: #fe90e8;
   --blue: #c0f7fe;
@@ -138,3 +138,4 @@ html[data-theme='candy'] {
 [data-theme='candy'] .keypanel { border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0 #000; }
 [data-theme='candy'] .keypanel .body-note { color: #000; }
 [data-theme='candy'] .keybtn.missing { background: #fe90e8; color: #000; border-color: #000; }
+[data-theme='candy'] .provider-pick select.field { border: 3px solid #000; background-color: #fff; box-shadow: 4px 4px 0 #000; font-weight: 800; }

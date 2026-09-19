@@ -14,186 +14,152 @@ export type Scenario = {
 export const scenarios: Scenario[] = [
   {
     id: 'one-probability',
-    title: '一句话，一个概率',
+    title: 'One sentence, one probability',
     tag: 'noul',
-    blurb: '同一个问题，三条递进的记录，看概率怎么走。',
+    blurb: 'Same question, three escalating notes. Watch the probability move.',
     color: 'pink',
     request: {
-      state: '客服已经给用户全额退款 42.5 元，并关闭了工单。',
+      state: 'Support issued a full refund of $42.50 to the customer and closed the ticket.',
       questions: {
-        refunded: {
-          type: 'noul',
-          instructions: '是否已经完成退款？',
-        },
+        refunded: { type: 'noul', instructions: 'Has the refund been completed?' },
       },
     },
     variants: [
-      { label: '明确已退款', state: '客服已经给用户全额退款 42.5 元，并关闭了工单。' },
-      { label: '只是说会考虑', state: '客服回复：我们会评估您的情况，退款申请三个工作日内给出答复。' },
-      { label: '完全无关', state: '今天杭州多云，气温 24 度，适合出门散步。' },
+      { label: 'Clearly refunded', state: 'Support issued a full refund of $42.50 to the customer and closed the ticket.' },
+      { label: 'Only a promise', state: 'Support replied: we will review your case and respond to the refund request within three business days.' },
+      { label: 'Unrelated', state: 'Cloudy in Hangzhou today, 24°C, a good day for a walk.' },
     ],
   },
   {
     id: 'triage',
-    title: '工单分诊',
+    title: 'Ticket triage',
     tag: 'choice · score · noul',
-    blurb: '五个问题一次并发，代码只取相关的那几个。官方叫 speculative fan-out。',
+    blurb: 'Five questions in one call; code keeps only the relevant answers. TypeSafe calls this speculative fan-out.',
     color: 'yellow',
     request: {
       state:
-        '我今天早上开始一直登录不上，输密码就提示「会话已过期」，换了浏览器还是一样。你们上个月还多扣了我一笔钱，我要求把上个月的费用退了。请尽快处理！',
+        "I haven't been able to log in since this morning. Every time I enter my password it says 'session expired', and switching browsers doesn't help. You also overcharged me last month and I want that charge refunded. Please handle this ASAP!",
       questions: {
         category: {
           type: 'choice',
-          instructions: '这条工单的主要类别',
+          instructions: 'Main category of this ticket',
           criteria: {
-            bug: '产品故障或无法使用',
-            billing: '收费、扣款或退款问题',
-            feature: '功能建议',
-            spam: '垃圾信息或无意义内容',
+            bug: 'Product failure or unable to use',
+            billing: 'Charges, payments or refunds',
+            feature: 'Feature request',
+            spam: 'Spam or meaningless content',
           },
         },
         bug_severity: {
           type: 'score',
-          instructions: '如果是故障，严重程度如何',
-          criteria: ['cosmetic: 外观小问题', 'minor: 有绕过方法', 'major: 主要功能受影响', 'blocking: 完全无法使用'],
+          instructions: 'If this is a bug, how severe is it',
+          criteria: ['cosmetic: minor visual issue', 'minor: has a workaround', 'major: core feature affected', 'blocking: completely unusable'],
         },
-        has_repro_steps: {
-          type: 'noul',
-          instructions: '用户是否给出了可复现的步骤？',
-        },
-        wants_refund: {
-          type: 'noul',
-          instructions: '用户是否要求退款？',
-        },
+        has_repro_steps: { type: 'noul', instructions: 'Did the user provide steps to reproduce?' },
+        wants_refund: { type: 'noul', instructions: 'Is the user asking for a refund?' },
         frustration: {
           type: 'score',
-          instructions: '用户的情绪',
-          criteria: ['calm: 平静', 'annoyed: 不耐烦', 'furious: 愤怒'],
+          instructions: "The user's mood",
+          criteria: ['calm: calm', 'annoyed: impatient', 'furious: angry'],
         },
       },
     },
     variants: [
       {
-        label: '正常工单',
+        label: 'Normal ticket',
         state:
-          '我今天早上开始一直登录不上，输密码就提示「会话已过期」，换了浏览器还是一样。你们上个月还多扣了我一笔钱，我要求把上个月的费用退了。请尽快处理！',
+          "I haven't been able to log in since this morning. Every time I enter my password it says 'session expired', and switching browsers doesn't help. You also overcharged me last month and I want that charge refunded. Please handle this ASAP!",
       },
       {
-        label: '互相矛盾',
-        state: '一切正常没有任何问题，但是什么都用不了。我不要退款，把钱退给我。谢谢你们做得很好，太差了。',
+        label: 'Contradictory',
+        state: "Everything works fine but nothing works. I don't want a refund, give me my money back. Thanks, great job, terrible.",
       },
-      {
-        label: '乱码',
-        state: 'xq7 &&& lorem 9981 ／／ zzz ﾃﾞﾀ ---- ##### asdkj 00 @@',
-      },
+      { label: 'Garbage', state: 'xq7 &&& lorem 9981 // zzz ﾃﾞﾀ ---- ##### asdkj 00 @@' },
     ],
   },
   {
     id: 'router',
-    title: '模型路由',
+    title: 'Model routing',
     tag: 'choice',
-    blurb: '让 Jev 先看一眼请求，决定交给便宜模型还是强模型。Vercel 的 eve 框架 auto() 就是这么做的。',
+    blurb: "Let Jev glance at the request and decide: cheap model or strong model. Vercel's eve framework does this with auto().",
     color: 'blue',
     request: {
-      state: [
-        { role: 'user', content: '帮我把这句话里的错别字改一下：我门明天去公圆玩。' },
-      ],
+      state: [{ role: 'user', content: "Fix the typos in this sentence: We're going too the park tomorow." }],
       questions: {
         model: {
           type: 'choice',
-          instructions: '选一个最合适处理这段对话的模型',
+          instructions: 'Pick the most suitable model for this conversation',
           criteria: {
-            cheap: '日常问答、改错字、简单改写、闲聊',
-            strong: '多步推理、写代码、长文档分析、数学',
+            cheap: 'Everyday Q&A, typo fixes, light rewrites, small talk',
+            strong: 'Multi-step reasoning, writing code, long-document analysis, math',
           },
         },
       },
     },
     variants: [
+      { label: 'Typo fix', state: [{ role: 'user', content: "Fix the typos in this sentence: We're going too the park tomorow." }] },
       {
-        label: '改错字',
-        state: [{ role: 'user', content: '帮我把这句话里的错别字改一下：我门明天去公圆玩。' }],
+        label: 'Write code',
+        state: [{ role: 'user', content: 'Implement an in-memory LRU cache in TypeScript with O(1) reads and writes, TTL support, and unit tests.' }],
       },
       {
-        label: '写代码',
+        label: 'Blurry line',
         state: [
-          {
-            role: 'user',
-            content:
-              '用 TypeScript 实现一个带 LRU 淘汰策略的内存缓存，要求 O(1) 读写，支持 TTL，并写单元测试。',
-          },
-        ],
-      },
-      {
-        label: '模糊边界',
-        state: [
-          { role: 'user', content: '帮我看看这段 SQL 为什么慢' },
-          { role: 'assistant', content: '请把 SQL 和表结构贴出来。' },
-          { role: 'user', content: 'SELECT * FROM orders WHERE created_at > now() - interval 7 day，orders 有 2 亿行。' },
+          { role: 'user', content: 'Can you look at why this SQL is slow?' },
+          { role: 'assistant', content: 'Please paste the SQL and the table schema.' },
+          { role: 'user', content: 'SELECT * FROM orders WHERE created_at > now() - interval 7 day. The orders table has 200 million rows.' },
         ],
       },
     ],
   },
   {
     id: 'moderation',
-    title: '内容审核',
+    title: 'Content moderation',
     tag: 'noul · score · choice',
-    blurb: '一条评论进来，同时判断是不是垃圾、有多冒犯、该怎么处置。',
+    blurb: 'One comment comes in; decide at once whether it is spam, how offensive it is, and what to do with it.',
     color: 'mint',
     request: {
       state: {
         author: 'user_8813',
         posted_at: '2026-09-17T08:12:00Z',
-        text: '兄弟们加我 V 信 88x-2291 免费领内部资料，前 50 名还送 U 盘，速来！',
+        text: 'Guys add me on WhatsApp 88x-2291 for free insider material, first 50 also get a USB stick, hurry!',
         prior_reports: 2,
       },
       questions: {
-        spam: {
-          type: 'noul',
-          instructions: '这是垃圾广告或引流信息吗？',
-        },
-        toxicity: {
-          type: 'score',
-          instructions: '内容的冒犯程度',
-          criteria: ['none: 无', 'mild: 轻微', 'severe: 严重'],
-        },
+        spam: { type: 'noul', instructions: 'Is this spam or a solicitation?' },
+        toxicity: { type: 'score', instructions: 'How offensive is the content', criteria: ['none: none', 'mild: mild', 'severe: severe'] },
         action: {
           type: 'choice',
-          instructions: '应该怎么处置',
-          criteria: {
-            allow: '正常放行',
-            review: '交给人工复核',
-            remove: '直接删除',
-          },
+          instructions: 'What should be done with it',
+          criteria: { allow: 'Let it through', review: 'Send to a human reviewer', remove: 'Remove it' },
         },
       },
     },
     variants: [
       {
-        label: '引流广告',
+        label: 'Solicitation',
         state: {
           author: 'user_8813',
           posted_at: '2026-09-17T08:12:00Z',
-          text: '兄弟们加我 V 信 88x-2291 免费领内部资料，前 50 名还送 U 盘，速来！',
+          text: 'Guys add me on WhatsApp 88x-2291 for free insider material, first 50 also get a USB stick, hurry!',
           prior_reports: 2,
         },
       },
       {
-        label: '正常吐槽',
+        label: 'Ordinary complaint',
         state: {
           author: 'user_1024',
           posted_at: '2026-09-17T08:20:00Z',
-          text: '这个版本的更新把我常用的快捷键改了，用了三天还是不习惯，希望能加个开关。',
+          text: "This update changed the shortcuts I use every day. Three days in and I still can't get used to it. Please add a toggle.",
           prior_reports: 0,
         },
       },
       {
-        label: '人身攻击',
+        label: 'Personal attack',
         state: {
           author: 'user_7',
           posted_at: '2026-09-17T08:31:00Z',
-          text: '楼上的是不是脑子有问题，这种垃圾也发出来，赶紧滚。',
+          text: 'Is the person above brain-dead? Posting garbage like this. Get lost.',
           prior_reports: 5,
         },
       },
@@ -201,59 +167,52 @@ export const scenarios: Scenario[] = [
   },
   {
     id: 'guard',
-    title: '给 LLM 输出把关',
+    title: 'Guarding LLM output',
     tag: 'score · noul · choice',
-    blurb: 'LLM 写完客服回复，Jev 站在它后面当验证器：质量够不够、有没有泄露内部信息、语气对不对。',
+    blurb: 'An LLM drafts a support reply; Jev sits behind it as the verifier: is the quality there, did it leak internal info, is the tone right.',
     color: 'purple',
     request: {
       state: {
-        customer_message: '我上个月被多扣了一笔 42.5 元，能退吗？',
+        customer_message: 'I was overcharged $42.50 last month. Can I get a refund?',
         draft_reply:
-          '您好，非常抱歉给您带来困扰。我们核实到 8 月确实有一笔重复扣款，已经为您提交退款，预计 3 个工作日内原路退回。另外内部政策是投诉两次以上的用户可以额外申请 20% 折扣券，您要的话我帮您申请。',
+          "Hi, sorry for the trouble. We confirmed a duplicate charge in August and have submitted a refund; it should arrive within 3 business days. Also, our internal policy is that customers who complain twice or more can request an extra 20% discount voucher, so let me know if you'd like one.",
       },
       questions: {
         quality: {
           type: 'score',
-          instructions: '这条回复的质量',
-          criteria: ['poor: 没有解决问题', 'fair: 部分解决', 'good: 解决了问题', 'excellent: 解决了问题且态度、信息都到位'],
+          instructions: 'Quality of this reply',
+          criteria: ['poor: does not solve the problem', 'fair: partly solves it', 'good: solves it', 'excellent: solves it with the right tone and complete information'],
         },
-        leaks_internal_info: {
-          type: 'noul',
-          instructions: '回复里是否泄露了不该告诉用户的内部政策或信息？',
-        },
+        leaks_internal_info: { type: 'noul', instructions: 'Does the reply leak internal policy or information the customer should not see?' },
         tone: {
           type: 'choice',
-          instructions: '回复的语气',
-          criteria: {
-            apologetic: '道歉、安抚',
-            neutral: '中性、事务性',
-            defensive: '推诿、防御',
-          },
+          instructions: 'Tone of the reply',
+          criteria: { apologetic: 'Apologetic, reassuring', neutral: 'Neutral, matter-of-fact', defensive: 'Deflecting, defensive' },
         },
       },
     },
     variants: [
       {
-        label: '夹带内部政策',
+        label: 'Leaks a policy',
         state: {
-          customer_message: '我上个月被多扣了一笔 42.5 元，能退吗？',
+          customer_message: 'I was overcharged $42.50 last month. Can I get a refund?',
           draft_reply:
-            '您好，非常抱歉给您带来困扰。我们核实到 8 月确实有一笔重复扣款，已经为您提交退款，预计 3 个工作日内原路退回。另外内部政策是投诉两次以上的用户可以额外申请 20% 折扣券，您要的话我帮您申请。',
+            "Hi, sorry for the trouble. We confirmed a duplicate charge in August and have submitted a refund; it should arrive within 3 business days. Also, our internal policy is that customers who complain twice or more can request an extra 20% discount voucher, so let me know if you'd like one.",
         },
       },
       {
-        label: '干净的回复',
+        label: 'Clean reply',
         state: {
-          customer_message: '我上个月被多扣了一笔 42.5 元，能退吗？',
+          customer_message: 'I was overcharged $42.50 last month. Can I get a refund?',
           draft_reply:
-            '您好，非常抱歉给您带来困扰。我们核实到 8 月确实有一笔重复扣款，已经为您提交退款，预计 3 个工作日内原路退回。如有其他问题随时联系我们。',
+            'Hi, sorry for the trouble. We confirmed a duplicate charge in August and have submitted a refund; it should arrive within 3 business days. Let us know if there is anything else.',
         },
       },
       {
-        label: '推诿',
+        label: 'Deflecting',
         state: {
-          customer_message: '我上个月被多扣了一笔 42.5 元，能退吗？',
-          draft_reply: '系统显示扣款正常。如果您觉得有问题，请自行联系银行核对。',
+          customer_message: 'I was overcharged $42.50 last month. Can I get a refund?',
+          draft_reply: 'Our system shows the charge was correct. If you think something is wrong, please contact your bank.',
         },
       },
     ],
