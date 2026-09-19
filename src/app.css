@@ -35,6 +35,7 @@ code, pre, .mono { font-family: var(--mono); }
 }
 .kicker::before { content: ''; display: inline-block; width: 6px; height: 16px; background: var(--accent); }
 .kicker.plain::before { display: none; }
+h2.kicker { font-family: var(--body); line-height: 1.5; }
 
 .tag {
   display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
@@ -72,7 +73,8 @@ select.field { appearance: none; cursor: pointer; background-image: linear-gradi
 h1, h2, h3 { margin: 0; font-family: var(--display); letter-spacing: -0.02em; line-height: 1.05; }
 h1 { font-weight: 800; font-size: 30px; letter-spacing: -0.025em; }
 h2 { font-weight: 700; font-size: 20px; }
-h3 { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+h3, .h3 { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+h3.label { font-family: var(--body); }
 
 /* ---------- layout ---------- */
 .app { max-width: 1680px; margin: 0 auto; padding: 28px 40px 80px; }
@@ -158,7 +160,7 @@ h3 { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
 .meter .mid-line { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px dashed var(--ink); opacity: 0.5; }
 .conf { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
 
-.empty { border-top: var(--hair); padding: 48px 0; font-size: 13px; color: var(--ink-soft); }
+.empty { border-top: var(--hair); padding: 48px 0; font-size: 13px; color: var(--ink-soft); margin-bottom: 0; }
 .error { border-top: 2px solid var(--accent); padding: 14px 0; font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; color: var(--accent); }
 
 .history { display: grid; gap: 0; border-top: var(--soft); }
@@ -184,3 +186,74 @@ h3 { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
 .provider-pick { display: inline-flex; align-items: center; gap: 8px; }
 .provider-pick .label { margin: 0; }
 .provider-pick select.field { padding: 4px 28px 4px 8px; font-size: 13px; font-weight: 600; border: var(--soft); background-color: var(--paper); }
+
+/* ---------- site nav (top bar) ---------- */
+.nav { display: inline-flex; gap: 14px; }
+.nav a { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 2px 0; }
+.nav a:hover { color: var(--ink); }
+.nav a[aria-current='page'] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- article page (/jev) ---------- */
+.page { max-width: 880px; margin: 0 auto; padding: 28px 24px 80px; }
+.page .topbar { align-items: center; }
+.page .topbar .title a { color: inherit; text-decoration: none; }
+.page .topbar .meta { gap: 18px; }
+.article { display: grid; gap: 44px; }
+.article > *, .trio > *, .duo > *, .provider { min-width: 0; }
+.article pre.raw { max-width: 100%; }
+.article section > :not(:first-child) { margin-top: 14px; }
+.article h2 { font-size: 24px; margin-bottom: 4px; }
+.article h3 { font-size: 16px; }
+.article p, .article li { font-size: 15px; line-height: 1.6; max-width: 70ch; }
+.article p { margin: 0; }
+.article ul, .article ol { margin: 0; padding-left: 20px; }
+.article li + li { margin-top: 6px; }
+.article a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.article a:hover { color: var(--accent); }
+.article code { font-size: 0.92em; background: var(--panel); padding: 1px 5px; }
+.article pre.raw { max-height: none; font-size: 12.5px; }
+.article pre.raw code { background: transparent; padding: 0; font-size: inherit; }
+.hero { display: grid; gap: 14px; padding-bottom: 12px; justify-items: start; }
+.hero h1 { font-size: 40px; max-width: 18ch; }
+.hero .lede { font-size: 17px; line-height: 1.55; max-width: 62ch; }
+.hero .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.hero .actions .btn { text-decoration: none; }
+.hero .actions .btn:hover { color: var(--paper); }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 760px) { .trio { grid-template-columns: 1fr; } }
+.box { border-top: var(--hair); padding-top: 12px; }
+.box > :not(:first-child) { margin-top: 8px; }
+.box h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.box .tag { font-size: 11px; }
+.box p, .box li { font-size: 13.5px; }
+.box .ret { font-family: var(--mono); font-size: 12.5px; color: var(--ink-soft); }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 700px) { .duo { grid-template-columns: 1fr; } }
+.claims { width: 100%; border-collapse: collapse; font-size: 14px; }
+.claims th, .claims td { text-align: left; padding: 9px 12px 9px 0; border-bottom: var(--soft); vertical-align: top; }
+.claims th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+.claims td:first-child { font-weight: 600; white-space: nowrap; }
+.claims td.num { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; white-space: nowrap; }
+.note { font-size: 13px; color: var(--ink-soft); border-left: 3px solid var(--accent); padding-left: 12px; }
+.provider { border-top: var(--hair); padding-top: 14px; }
+.provider > :not(:first-child) { margin-top: 10px; }
+.provider .head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.provider .head .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+.steps { display: grid; gap: 12px; counter-reset: step; }
+.steps li { list-style: none; position: relative; padding-left: 40px; }
+.steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 2px; font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 600; }
+.foot { border-top: 2px solid var(--ink); padding-top: 18px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; }
+@media (max-width: 700px) {
+  .page { padding: 20px 16px 60px; }
+  .hero h1 { font-size: 32px; }
+  .article h2 { font-size: 21px; }
+  .claims td.num { font-size: 17px; }
+  .claims td:first-child { white-space: normal; }
+  /* stack each row: label + figure, note underneath */
+  .claims thead { display: none; }
+  .claims tbody, .claims tr { display: block; }
+  .claims tr { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding: 10px 0; border-bottom: var(--soft); }
+  .claims td { display: block; padding: 0; border: 0; }
+  .claims td:nth-child(3) { grid-column: 1 / -1; margin-top: 4px; font-size: 13px; color: var(--ink-soft); }
+}
+@media (max-width: 700px) { .app { padding: 20px 16px 60px; } }

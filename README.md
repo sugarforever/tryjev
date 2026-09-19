@@ -19,8 +19,13 @@ Open http://localhost:5173, pick a provider in the top bar and paste your key vi
 - `src/lib/server/providers.ts` - one adapter per provider; same `{ state, questions }` in, responses normalized to noul / choice / score with confidence and usage (Vercel calls noul "boolean" and keeps confidence in providerMetadata; both are mapped back)
 - `src/lib/scenarios.ts` - five preset scenarios (one sentence one probability, ticket triage, model routing, content moderation, guarding LLM output), each with alternate states one click away
 - `src/lib/types.ts` - shared request/response types, provider and model id tables
-- `src/routes/+page.svelte` - the UI (Svelte 5)
+- `src/routes/+page.svelte` - the playground UI (Svelte 5)
+- `src/routes/jev/+page.svelte` - "About Jev": what a System One model is, the three question types, recommended patterns, pricing (vendor claims), one call example per provider (`/about` redirects here)
+- `src/lib/Seo.svelte` - per-route title / description / canonical / Open Graph / Twitter / JSON-LD; site-wide tags stay in `src/routes/+layout.svelte`
+- `src/lib/site.ts` - `SITE_URL` and the `PAGES` list that feeds `sitemap.xml` (bump `lastmod` when a page changes)
+- `src/lib/theme.svelte.ts` - shared theme state; `src/app.html` sets `data-theme` before first paint
 - `src/app.css` / `src/theme-candy.css` - Swiss minimal base + BlockFrame candy theme
+- `seo/` - HTML sources for the icons and the two OG images; render with `PLAYWRIGHT=<path to an installed playwright/index.mjs> node seo/render.mjs [og] [og-jev] [icons]`
 
 ## Three question types
 

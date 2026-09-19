@@ -135,6 +135,52 @@ html[data-theme='candy'] {
 [data-theme='candy'] .theme-switch button { font-weight: 800; color: #000; text-decoration: none; }
 [data-theme='candy'] .theme-switch button.on { background: var(--green); }
 
+/* site nav */
+[data-theme='candy'] .nav { gap: 8px; }
+[data-theme='candy'] .nav a { border: 3px solid #000; background: #fff; box-shadow: 4px 4px 0 #000; padding: 3px 10px; font-weight: 800; color: #000; text-decoration: none; transition: transform .08s, box-shadow .08s; }
+[data-theme='candy'] .nav a:hover { background: var(--blue); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
+[data-theme='candy'] .nav a[aria-current='page'] { background: var(--yellow); text-decoration: none; }
+
+/* article page (/jev) */
+[data-theme='candy'] .page { padding: 26px 24px 90px; }
+[data-theme='candy'] .article h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; display: inline-block; background: var(--pink); border: 4px solid #000; box-shadow: 6px 6px 0 #000; padding: 4px 12px; margin-bottom: 10px; }
+[data-theme='candy'] .article h3 { font-weight: 900; }
+[data-theme='candy'] .article p, [data-theme='candy'] .article li { color: #000; }
+[data-theme='candy'] .article p, [data-theme='candy'] .hero .lede, [data-theme='candy'] .article li { background: var(--offwhite); box-decoration-break: clone; }
+[data-theme='candy'] .article a:hover { color: #000; background: var(--yellow); }
+[data-theme='candy'] .article code { background: var(--cream); border: 2px solid #000; padding: 0 4px; }
+[data-theme='candy'] .hero h1 { font-size: 44px; display: inline-block; background: var(--yellow); border: 5px solid #000; box-shadow: var(--shadow); padding: 6px 16px; transform: rotate(-1deg); }
+[data-theme='candy'] .hero .actions .btn { text-decoration: none; }
+[data-theme='candy'] .hero .actions .btn:hover { color: #000; }
+[data-theme='candy'] .box { border: 4px solid #000; background: #fff; padding: 14px 16px; box-shadow: var(--shadow-sm); }
+[data-theme='candy'] .box.choice { border-left: 14px solid var(--blue); }
+[data-theme='candy'] .box.score { border-left: 14px solid var(--green); }
+[data-theme='candy'] .box.noul { border-left: 14px solid var(--pink); }
+[data-theme='candy'] .box.pattern { border-left: 14px solid var(--yellow); }
+[data-theme='candy'] .box .ret { color: #000; font-weight: 700; }
+[data-theme='candy'] .box .tag { box-shadow: none; border-width: 2px; }
+[data-theme='candy'] .claims { border: 4px solid #000; background: #fff; box-shadow: var(--shadow); }
+[data-theme='candy'] .claims th, [data-theme='candy'] .claims td { padding: 10px 14px; border-bottom: 3px solid #000; }
+[data-theme='candy'] .claims tr:last-child td { border-bottom: 0; }
+[data-theme='candy'] .claims th { color: #000; font-weight: 800; background: var(--cream); }
+[data-theme='candy'] .claims td.num { font-weight: 900; }
+[data-theme='candy'] .note { border: 3px dashed #000; padding: 10px 14px; background: var(--blue); color: #000; font-weight: 600; }
+[data-theme='candy'] .provider { border: 4px solid #000; background: #fff; padding: 14px 16px; box-shadow: var(--shadow-sm); }
+[data-theme='candy'] .provider .head .tag { box-shadow: none; border-width: 2px; }
+[data-theme='candy'] .steps li::before { color: #000; font-weight: 700; border: 2px solid #000; background: var(--yellow); padding: 0 4px; top: 0; }
+[data-theme='candy'] .duo .box.yes { border-left: 14px solid var(--green); }
+[data-theme='candy'] .duo .box.no { border-left: 14px solid var(--pink); }
+[data-theme='candy'] .foot { border-top: 4px solid #000; }
+[data-theme='candy'] .foot a { font-weight: 700; }
+@media (max-width: 700px) {
+  [data-theme='candy'] .claims tr { padding: 10px 14px; border-bottom: 3px solid #000; }
+  [data-theme='candy'] .claims tr:last-child { border-bottom: 0; }
+  [data-theme='candy'] .claims td, [data-theme='candy'] .claims td:nth-child(3) { padding: 0; border: 0; color: #000; }
+  [data-theme='candy'] .page { padding: 20px 16px 70px; }
+  [data-theme='candy'] .hero h1 { font-size: 30px; transform: none; }
+  [data-theme='candy'] .app { padding: 20px 16px 70px; }
+}
+
 [data-theme='candy'] .keypanel { border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0 #000; }
 [data-theme='candy'] .keypanel .body-note { color: #000; }
 [data-theme='candy'] .keybtn.missing { background: #fe90e8; color: #000; border-color: #000; }

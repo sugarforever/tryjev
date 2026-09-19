@@ -2,6 +2,13 @@
 	import { onMount } from 'svelte';
 	import { scenarios, type Scenario } from '$lib/scenarios';
 	import { MODEL_IDS, PROVIDERS, PRICE_PER_MTOK_INPUT, type Answer, type EvaluateResponse, type Input, type Provider, type Question } from '$lib/types';
+	import Seo from '$lib/Seo.svelte';
+	import ThemeSwitch from '$lib/ThemeSwitch.svelte';
+	import { SITE_URL } from '$lib/site';
+
+	const title = 'Jev Playground · typed decisions from a fast decision model';
+	const description =
+		'Try Jev, TypeSafe AI’s System One decision model, in the browser: give it a state and typed questions (noul, choice, score) and get back calibrated probabilities instead of text. Five preset scenarios; bring your own key from OpenRouter, Vercel AI Gateway or TypeSafe.';
 
 	// ---------- editable question model ----------
 	type QRow = {
@@ -69,7 +76,6 @@
 	let busy = $state(false);
 	let runs = $state<Run[]>([]);
 	let current = $state<Run | null>(null);
-	let theme = $state<'swiss' | 'candy'>('candy');
 	// BYOK: provider + per-provider keys live in localStorage only and ride along as request headers
 	let provider = $state<Provider>('openrouter');
 	let keys = $state<Record<Provider, string>>({ openrouter: '', vercel: '', typesafe: '' });
@@ -131,26 +137,18 @@
 		}
 	}
 
-	// theme: ?theme=candy first, then localStorage; written to <html data-theme>
+	// provider + keys from localStorage (theme is handled in +layout.svelte)
 	onMount(() => {
-		const fromUrl = new URLSearchParams(location.search).get('theme');
 		try {
 			const p = localStorage.getItem('jev-provider') as Provider | null;
 			if (p && p in keys) provider = p;
 			const k = localStorage.getItem('jev-keys');
 			if (k) keys = { ...keys, ...(JSON.parse(k) as Partial<Record<Provider, string>>) };
 			keyDraft = keys[provider];
-			const saved = localStorage.getItem('jev-theme');
-			if (fromUrl === 'candy' || fromUrl === 'swiss') theme = fromUrl;
-			else if (saved === 'candy' || saved === 'swiss') theme = saved;
 		} catch {}
 		const onKey = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); void run(); } };
 		window.addEventListener('keydown', onKey);
 		return () => window.removeEventListener('keydown', onKey);
-	});
-	$effect(() => {
-		document.documentElement.dataset.theme = theme;
-		try { localStorage.setItem('jev-theme', theme); } catch {}
 	});
 
 	// ---------- response rendering ----------
@@ -160,17 +158,39 @@
 	const scoreTop = (entries: [string, number][], a: { score: number }) => (entries.length ? entries.reduce((m, e) => (e[1] > m[1] ? e : m))[0] : String(Math.round(a.score)));
 	const cost = (r: EvaluateResponse) => r.usage.cost ?? (r.usage.inputTokens / 1_000_000) * PRICE_PER_MTOK_INPUT;
 	const confidences = (r: EvaluateResponse) => Object.entries(r.answers).flatMap(([id, a]) => (a.type !== 'noul' && typeof a.confidence === 'number' ? [[id, a.confidence] as const] : []));
+
+	const jsonLd = [
+		{
+			'@type': 'WebApplication',
+			name: 'Jev Playground',
+			alternateName: 'tryjev',
+			url: SITE_URL + '/',
+			description,
+			applicationCategory: 'DeveloperApplication',
+			operatingSystem: 'Web',
+			browserRequirements: 'Requires JavaScript',
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+			image: SITE_URL + '/og.png',
+			about: { '@type': 'SoftwareApplication', name: 'Jev', url: 'https://typesafe.ai', applicationCategory: 'DeveloperApplication', creator: { '@type': 'Organization', name: 'TypeSafe AI', url: 'https://typesafe.ai' } }
+		}
+	];
 </script>
+
+<Seo {title} {description} path="/" imageAlt="JEV · Playground for the fast decision model" keywords="Jev, TypeSafe AI, System One model, decision model, noul, choice, score, OpenRouter, Vercel AI Gateway, playground" {jsonLd} />
 
 <div class="app">
 	<header class="topbar">
 		<div class="title">
 			<div>
 				<h1>Jev Playground</h1>
-				<p class="sub">State in · typed probabilities out · via {providerInfo.name}</p>
+				<p class="sub">TypeSafe AI’s System One decision model · state in, typed probabilities out · via {providerInfo.name}</p>
 			</div>
 		</div>
 		<div class="meta">
+			<nav class="nav" aria-label="Site">
+				<a href="/" aria-current="page">Playground</a>
+				<a href="/jev">About Jev</a>
+			</nav>
 			<label class="provider-pick">
 				<span class="label">Provider</span>
 				<select class="field" value={provider} onchange={(e) => pickProvider((e.currentTarget as HTMLSelectElement).value as Provider)}>
@@ -181,10 +201,7 @@
 			<span class="tag">$0.042 / M input</span>
 			<span class="tag">output free</span>
 			<span class="tag">{provider === 'vercel' ? 'experimental_evaluate' : provider === 'typesafe' ? '/v1/systemone' : 'alpha.decisions'}</span>
-			<span class="theme-switch">
-				<button class={theme === 'swiss' ? 'on' : ''} onclick={() => (theme = 'swiss')}>Swiss</button>
-				<button class={theme === 'candy' ? 'on' : ''} onclick={() => (theme = 'candy')}>Candy</button>
-			</span>
+			<ThemeSwitch />
 			<button class="btn ghost keybtn {apiKey ? '' : 'missing'}" onclick={() => { keyDraft = apiKey; keyOpen = !keyOpen; }} title="Your API key stays in this browser">
 				{apiKey ? `Key · ${keyMasked}` : 'Key · not set'}
 			</button>
@@ -194,7 +211,7 @@
 	{#if keyOpen}
 		<div class="keypanel">
 			<div class="section-head">
-				<h3>API key · bring your own</h3>
+				<h2 class="h3">API key · bring your own</h2>
 				<span class="tag">stored only in this browser's localStorage</span>
 			</div>
 			<div class="toggle providers">
@@ -214,7 +231,7 @@
 	<div class="grid">
 		<!-- scenarios -->
 		<aside class="col">
-			<span class="kicker">01 Scenarios</span>
+			<h2 class="kicker">01 Scenarios</h2>
 			<div class="scenarios">
 				{#each scenarios as s (s.id)}
 					<button data-color={s.color} class="scenario {active.id === s.id ? 'active' : ''}" onclick={() => loadScenario(s)}>
@@ -226,7 +243,7 @@
 			</div>
 			{#if runs.length > 0}
 				<div>
-					<span class="label">History (click to revisit)</span>
+					<h3 class="label">History (click to revisit)</h3>
 					<div class="history">
 						{#each runs.slice(0, 8) as r (r.n)}
 							<div class="hrow" role="button" tabindex="0" onclick={() => (current = r)} onkeydown={(e) => e.key === 'Enter' && (current = r)}>
@@ -243,7 +260,7 @@
 		<!-- request -->
 		<section class="col">
 			<div class="section-head">
-				<span class="kicker">02 Request</span>
+				<h2 class="kicker">02 Request</h2>
 				<div class="toggle">
 					<button class={reqView === 'form' ? 'on' : ''} onclick={() => (reqView = 'form')}>Form</button>
 					<button class={reqView === 'json' ? 'on' : ''} onclick={() => (reqView = 'json')}>JSON</button>
@@ -342,7 +359,7 @@
 		<!-- response -->
 		<section class="col sticky">
 			<div class="section-head">
-				<span class="kicker">03 Response</span>
+				<h2 class="kicker">03 Response</h2>
 				<div class="toggle">
 					<button class={resView === 'cards' ? 'on' : ''} onclick={() => (resView = 'cards')}>Cards</button>
 					<button class={resView === 'json' ? 'on' : ''} onclick={() => (resView = 'json')}>JSON</button>
@@ -350,7 +367,7 @@
 			</div>
 
 			{#if !current}
-				<div class="empty">Hit Evaluate and the probabilities land here.</div>
+				<p class="empty">Hit Evaluate and the probabilities land here.</p>
 			{:else if current.error}
 				<div class="error">{current.error}</div>
 			{:else if current.response && resView === 'json'}
