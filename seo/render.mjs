@@ -1,6 +1,6 @@
 // Renders the OG images and icons in static/ from the HTML next to this file.
 // Playwright is not a dependency of this repo: point PLAYWRIGHT at an installed copy, e.g.
-//   PLAYWRIGHT=../verysmallwoods/node_modules/playwright/index.mjs node seo/render.mjs [og] [og-jev] [icons]
+//   PLAYWRIGHT=../verysmallwoods/node_modules/playwright/index.mjs node seo/render.mjs [og] [og-jev] [og-cookbook] [icons]
 // With no targets every asset is rendered.
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
@@ -21,6 +21,7 @@ async function shot(html, file, width, height) {
 // OG 1200×630, one per page
 if (want('og')) await shot('./og.html', 'og.png', 1200, 630);
 if (want('og-jev')) await shot('./og-jev.html', 'og-jev.png', 1200, 630);
+if (want('og-cookbook')) await shot('./og-cookbook.html', 'og-cookbook.png', 1200, 630);
 // icons
 if (want('icons')) for (const [name, size] of [['favicon-32.png', 32], ['favicon-192.png', 192], ['apple-touch-icon.png', 180], ['icon-512.png', 512]]) await shot('./icon.html', name, size, size);
 await b.close();

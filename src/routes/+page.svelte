@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { scenarios, type Scenario } from '$lib/scenarios';
+	import { findRecipe } from '$lib/cookbook';
 	import { MODEL_IDS, PROVIDERS, PRICE_PER_MTOK_INPUT, type Answer, type EvaluateResponse, type Input, type Provider, type Question } from '$lib/types';
 	import Seo from '$lib/Seo.svelte';
 	import ThemeSwitch from '$lib/ThemeSwitch.svelte';
+	import SiteNav from '$lib/SiteNav.svelte';
 	import { SITE_URL } from '$lib/site';
 
 	const title = 'Jev Playground · typed decisions from a fast decision model';
@@ -137,8 +139,13 @@
 		}
 	}
 
-	// provider + keys from localStorage (theme is handled in +layout.svelte)
+	// provider + keys from localStorage (theme is handled in +layout.svelte); ?recipe= / ?scenario= preload a request
 	onMount(() => {
+		const q = new URLSearchParams(location.search);
+		const recipe = findRecipe(q.get('recipe'));
+		const preset = scenarios.find((s) => s.id === q.get('scenario'));
+		if (recipe) loadScenario({ id: `recipe:${recipe.id}`, title: recipe.title, tag: recipe.tag, blurb: recipe.why, color: recipe.color, request: recipe.request });
+		else if (preset) loadScenario(preset);
 		try {
 			const p = localStorage.getItem('jev-provider') as Provider | null;
 			if (p && p in keys) provider = p;
@@ -185,12 +192,9 @@
 				<h1>Jev Playground</h1>
 				<p class="sub">TypeSafe AI’s System One decision model · state in, typed probabilities out · via {providerInfo.name}</p>
 			</div>
+			<SiteNav current="/" />
 		</div>
 		<div class="meta">
-			<nav class="nav" aria-label="Site">
-				<a href="/" aria-current="page">Playground</a>
-				<a href="/jev">About Jev</a>
-			</nav>
 			<label class="provider-pick">
 				<span class="label">Provider</span>
 				<select class="field" value={provider} onchange={(e) => pickProvider((e.currentTarget as HTMLSelectElement).value as Provider)}>
@@ -232,6 +236,9 @@
 		<!-- scenarios -->
 		<aside class="col">
 			<h2 class="kicker">01 Scenarios</h2>
+			{#if active.id.startsWith('recipe:')}
+				<p class="from-cookbook">Loaded from the <a href="/cookbook#{active.id.slice(7)}">cookbook</a>: <strong>{active.title}</strong></p>
+			{/if}
 			<div class="scenarios">
 				{#each scenarios as s (s.id)}
 					<button data-color={s.color} class="scenario {active.id === s.id ? 'active' : ''}" onclick={() => loadScenario(s)}>

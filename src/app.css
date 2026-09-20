@@ -188,17 +188,20 @@ h3.label { font-family: var(--body); }
 .provider-pick select.field { padding: 4px 28px 4px 8px; font-size: 13px; font-weight: 600; border: var(--soft); background-color: var(--paper); }
 
 /* ---------- site nav (top bar) ---------- */
-.nav { display: inline-flex; gap: 14px; }
-.nav a { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 2px 0; }
-.nav a:hover { color: var(--ink); }
-.nav a[aria-current='page'] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.nav { display: inline-flex; flex-wrap: wrap; gap: 6px; align-self: flex-end; margin-bottom: 2px; }
+.nav a { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 6px 12px; border: var(--hair); white-space: nowrap; }
+.nav a:hover { background: var(--ink); color: var(--paper); }
+.nav a[aria-current='page'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.nav a:not([aria-current='page']) { border-color: var(--accent); color: var(--accent); }
+.nav a:not([aria-current='page']):hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (max-width: 700px) { .topbar .title { flex-wrap: wrap; } .nav { align-self: flex-start; } }
 
 /* ---------- article page (/jev) ---------- */
-.page { max-width: 880px; margin: 0 auto; padding: 28px 24px 80px; }
+/* same .app container and top bar as the playground; only the article body is a reading column */
 .page .topbar { align-items: center; }
-.page .topbar .title a { color: inherit; text-decoration: none; }
+.page .topbar .title .home { display: inline-block; color: inherit; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -0.025em; line-height: 1.05; }
 .page .topbar .meta { gap: 18px; }
-.article { display: grid; gap: 44px; }
+.article { display: grid; gap: 44px; max-width: 880px; }
 .article > *, .trio > *, .duo > *, .provider { min-width: 0; }
 .article pre.raw { max-width: 100%; }
 .article section > :not(:first-child) { margin-top: 14px; }
@@ -243,8 +246,27 @@ h3.label { font-family: var(--body); }
 .steps li { list-style: none; position: relative; padding-left: 40px; }
 .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 2px; font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 600; }
 .foot { border-top: 2px solid var(--ink); padding-top: 18px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; }
+
+/* cookbook */
+.toc { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.toc a.tag { text-decoration: none; }
+.toc a.tag:hover { color: var(--ink); border-color: var(--ink); }
+.recipe { border-top: var(--hair); padding-top: 14px; scroll-margin-top: 20px; }
+.recipe .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.recipe .head .label { margin-bottom: 6px; }
+.recipe .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.recipe .actions .btn { text-decoration: none; font-size: 13px; padding: 8px 12px; }
+.recipe .actions .btn.primary { font-size: 13px; padding: 8px 14px; }
+.recipe .actions .btn:hover { color: var(--paper); }
+.recipe details > summary { cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); list-style: none; }
+.recipe details > summary::before { content: '▸ '; }
+.recipe details[open] > summary::before { content: '▾ '; }
+.recipe details > summary::-webkit-details-marker { display: none; }
+.recipe details[open] > summary { margin-bottom: 8px; }
+.recipe .code .label { margin-bottom: 6px; }
+.from-cookbook { font-size: 12.5px; color: var(--ink-soft); border-left: 3px solid var(--accent); padding-left: 10px; margin: 0; }
+.from-cookbook a { color: var(--ink); }
 @media (max-width: 700px) {
-  .page { padding: 20px 16px 60px; }
   .hero h1 { font-size: 32px; }
   .article h2 { font-size: 21px; }
   .claims td.num { font-size: 17px; }

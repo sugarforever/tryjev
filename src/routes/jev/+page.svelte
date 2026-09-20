@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/Seo.svelte';
-	import ThemeSwitch from '$lib/ThemeSwitch.svelte';
+	import PageHeader from '$lib/PageHeader.svelte';
 	import { MODEL_IDS, PRICE_PER_MTOK_INPUT } from '$lib/types';
 	import { SITE_URL, REPO_URL } from '$lib/site';
 
@@ -117,22 +117,8 @@ const r = await evaluate({
 	{jsonLd}
 />
 
-<div class="page">
-	<header class="topbar">
-		<div class="title">
-			<div>
-				<a href="/" class="h3" aria-label="Jev Playground home">tryjev</a>
-				<p class="sub">About Jev · a System One decision model</p>
-			</div>
-		</div>
-		<div class="meta">
-			<nav class="nav" aria-label="Site">
-				<a href="/">Playground</a>
-				<a href="/jev" aria-current="page">About Jev</a>
-			</nav>
-			<ThemeSwitch />
-		</div>
-	</header>
+<div class="app page">
+	<PageHeader sub="About Jev · a System One decision model" current="/jev" />
 
 	<article class="article">
 		<section class="hero">

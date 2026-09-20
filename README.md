@@ -21,11 +21,13 @@ Open http://localhost:5173, pick a provider in the top bar and paste your key vi
 - `src/lib/types.ts` - shared request/response types, provider and model id tables
 - `src/routes/+page.svelte` - the playground UI (Svelte 5)
 - `src/routes/jev/+page.svelte` - "About Jev": what a System One model is, the three question types, recommended patterns, pricing (vendor claims), one call example per provider (`/about` redirects here)
+- `src/routes/cookbook/+page.svelte` + `src/lib/cookbook.ts` - eleven copy-paste recipes (JSON body, curl, "then in code"); `/?recipe=<id>` and `/?scenario=<id>` preload the playground
+- `src/lib/SiteNav.svelte` / `src/lib/PageHeader.svelte` - top-bar nav shared by every page, header for the content pages
 - `src/lib/Seo.svelte` - per-route title / description / canonical / Open Graph / Twitter / JSON-LD; site-wide tags stay in `src/routes/+layout.svelte`
 - `src/lib/site.ts` - `SITE_URL` and the `PAGES` list that feeds `sitemap.xml` (bump `lastmod` when a page changes)
 - `src/lib/theme.svelte.ts` - shared theme state; `src/app.html` sets `data-theme` before first paint
 - `src/app.css` / `src/theme-candy.css` - Swiss minimal base + BlockFrame candy theme
-- `seo/` - HTML sources for the icons and the two OG images; render with `PLAYWRIGHT=<path to an installed playwright/index.mjs> node seo/render.mjs [og] [og-jev] [icons]`
+- `seo/` - HTML sources for the icons and the OG images; render with `PLAYWRIGHT=<path to an installed playwright/index.mjs> node seo/render.mjs [og] [og-jev] [og-cookbook] [icons]`
 
 ## Three question types
 

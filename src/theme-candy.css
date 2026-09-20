@@ -136,13 +136,15 @@ html[data-theme='candy'] {
 [data-theme='candy'] .theme-switch button.on { background: var(--green); }
 
 /* site nav */
-[data-theme='candy'] .nav { gap: 8px; }
-[data-theme='candy'] .nav a { border: 3px solid #000; background: #fff; box-shadow: 4px 4px 0 #000; padding: 3px 10px; font-weight: 800; color: #000; text-decoration: none; transition: transform .08s, box-shadow .08s; }
-[data-theme='candy'] .nav a:hover { background: var(--blue); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #000; }
-[data-theme='candy'] .nav a[aria-current='page'] { background: var(--yellow); text-decoration: none; }
+[data-theme='candy'] .nav { gap: 10px; margin-bottom: 4px; }
+[data-theme='candy'] .nav a { border: 3px solid #000; background: #fff; box-shadow: 5px 5px 0 #000; padding: 6px 14px; font-size: 13px; font-weight: 900; color: #000; text-decoration: none; transition: transform .08s, box-shadow .08s; }
+[data-theme='candy'] .nav a:hover { background: var(--blue); color: #000; transform: translate(-2px, -2px); box-shadow: 7px 7px 0 #000; }
+[data-theme='candy'] .nav a[aria-current='page'] { background: #000; color: #fff; box-shadow: none; transform: none; }
+[data-theme='candy'] .nav a[aria-current='page']:hover { background: #000; color: #fff; transform: none; box-shadow: none; }
+[data-theme='candy'] .nav a:not([aria-current='page']) { background: var(--pink); }
 
-/* article page (/jev) */
-[data-theme='candy'] .page { padding: 26px 24px 90px; }
+/* content pages (/jev, /cookbook) */
+[data-theme='candy'] .page .topbar .home { font-weight: 900; font-size: 34px; letter-spacing: -0.03em; text-transform: uppercase; background: var(--offwhite); }
 [data-theme='candy'] .article h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; display: inline-block; background: var(--pink); border: 4px solid #000; box-shadow: 6px 6px 0 #000; padding: 4px 12px; margin-bottom: 10px; }
 [data-theme='candy'] .article h3 { font-weight: 900; }
 [data-theme='candy'] .article p, [data-theme='candy'] .article li { color: #000; }
@@ -171,12 +173,22 @@ html[data-theme='candy'] {
 [data-theme='candy'] .duo .box.yes { border-left: 14px solid var(--green); }
 [data-theme='candy'] .duo .box.no { border-left: 14px solid var(--pink); }
 [data-theme='candy'] .foot { border-top: 4px solid #000; }
+[data-theme='candy'] .recipe { border: 4px solid #000; background: #fff; padding: 14px 16px; box-shadow: var(--shadow-sm); }
+[data-theme='candy'] .recipe[data-color='pink'] { border-left: 14px solid var(--pink); }
+[data-theme='candy'] .recipe[data-color='yellow'] { border-left: 14px solid var(--yellow); }
+[data-theme='candy'] .recipe[data-color='blue'] { border-left: 14px solid var(--blue); }
+[data-theme='candy'] .recipe[data-color='green'] { border-left: 14px solid var(--green); }
+[data-theme='candy'] .recipe[data-color='cream'] { border-left: 14px solid var(--cream); }
+[data-theme='candy'] .recipe .head .tag { box-shadow: none; border-width: 2px; }
+[data-theme='candy'] .recipe .actions .btn:hover { color: #000; }
+[data-theme='candy'] .recipe details > summary { color: #000; font-weight: 800; }
+[data-theme='candy'] .toc a.tag:hover { background: var(--yellow); }
+[data-theme='candy'] .from-cookbook { border: 3px dashed #000; background: var(--blue); color: #000; padding: 8px 12px; font-weight: 600; }
 [data-theme='candy'] .foot a { font-weight: 700; }
 @media (max-width: 700px) {
   [data-theme='candy'] .claims tr { padding: 10px 14px; border-bottom: 3px solid #000; }
   [data-theme='candy'] .claims tr:last-child { border-bottom: 0; }
   [data-theme='candy'] .claims td, [data-theme='candy'] .claims td:nth-child(3) { padding: 0; border: 0; color: #000; }
-  [data-theme='candy'] .page { padding: 20px 16px 70px; }
   [data-theme='candy'] .hero h1 { font-size: 30px; transform: none; }
   [data-theme='candy'] .app { padding: 20px 16px 70px; }
 }
