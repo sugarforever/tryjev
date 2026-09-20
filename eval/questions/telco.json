@@ -1,0 +1,15 @@
+{
+ "will_churn": {
+  "type": "noul",
+  "instructions": "Will this customer cancel their service within the next month?"
+ },
+ "risk_tier": {
+  "type": "score",
+  "instructions": "Churn risk tier",
+  "criteria": [
+   "low: likely to stay",
+   "medium: at some risk",
+   "high: likely to leave"
+  ]
+ }
+}

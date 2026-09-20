@@ -1,0 +1,6 @@
+{
+ "spam": {
+  "type": "noul",
+  "instructions": "Is this SMS message spam (unsolicited advertising, scam or bulk message)?"
+ }
+}

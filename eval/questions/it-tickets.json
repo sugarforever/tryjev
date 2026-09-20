@@ -1,0 +1,20 @@
+{
+ "category": {
+  "type": "choice",
+  "instructions": "Which support queue should this IT ticket go to",
+  "criteria": {
+   "hardware": "Laptops, monitors, printers, devices",
+   "hr_support": "HR, payroll, leave, onboarding",
+   "access": "Accounts, logins, permissions to systems",
+   "miscellaneous": "Anything not covered by the others",
+   "storage": "Disk, drives, file shares, quotas",
+   "purchase": "Buying equipment, licences, software",
+   "internal_project": "Project work, internal initiatives",
+   "administrative_rights": "Admin / elevated rights on a machine"
+  }
+ },
+ "needs_admin_rights": {
+  "type": "noul",
+  "instructions": "Does resolving this ticket require granting elevated or admin rights?"
+ }
+}

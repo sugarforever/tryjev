@@ -1,0 +1,7 @@
+raw/
+.env
+*.log
+samples/jigsaw.jsonl
+samples/quora.jsonl
+.venv/
+__pycache__/

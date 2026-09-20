@@ -1,0 +1,212 @@
+{
+  "$comment": "Manifest read by sample.py / run.mjs. `source`: kaggle ref; `text`/`fields`: how to build state; `truth`: label columns; `stratify`: column for stratified sampling. Question schemas live in questions/<id>.json (tryjev EvaluateRequest shape).",
+  "datasets": [
+    {
+      "id": "jigsaw",
+      "source": {
+        "kind": "competition",
+        "ref": "jigsaw-unintended-bias-in-toxicity-classification",
+        "file": "test_public_expanded.csv"
+      },
+      "state": {
+        "comment": "comment_text"
+      },
+      "truth": {
+        "toxic": "target >= 0.5",
+        "toxic_fraction": "target",
+        "severe_toxicity": "severe_toxicity",
+        "threat": "threat",
+        "insult": "insult"
+      },
+      "stratify": {
+        "column": "target",
+        "bins": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0.3
+          ],
+          [
+            0.3,
+            0.7
+          ],
+          [
+            0.7,
+            1
+          ]
+        ],
+        "weights": [
+          0.25,
+          0.2,
+          0.3,
+          0.25
+        ]
+      },
+      "n": 500,
+      "redistribute_text": false
+    },
+    {
+      "id": "it-tickets",
+      "source": {
+        "kind": "dataset",
+        "ref": "adisongoh/it-service-ticket-classification-dataset",
+        "file": "all_tickets_processed_improved_v3.csv"
+      },
+      "state": {
+        "ticket": "Document"
+      },
+      "truth": {
+        "category": "Topic_group"
+      },
+      "stratify": {
+        "column": "Topic_group"
+      },
+      "n": 500,
+      "label_map": {
+        "Hardware": "hardware",
+        "HR Support": "hr_support",
+        "Access": "access",
+        "Miscellaneous": "miscellaneous",
+        "Storage": "storage",
+        "Purchase": "purchase",
+        "Internal Project": "internal_project",
+        "Administrative rights": "administrative_rights"
+      }
+    },
+    {
+      "id": "banking77",
+      "source": {
+        "kind": "dataset",
+        "ref": "sssonnn/banking77",
+        "file": "test.csv",
+        "canonical": "https://huggingface.co/datasets/PolyAI/banking77"
+      },
+      "state": {
+        "customer_message": "text"
+      },
+      "truth": {
+        "intent": "category"
+      },
+      "stratify": {
+        "column": "category"
+      },
+      "n": 500
+    },
+    {
+      "id": "cfpb",
+      "source": {
+        "kind": "dataset",
+        "ref": "kaggle/us-consumer-finance-complaints",
+        "file": "consumer_complaints.csv"
+      },
+      "filter": "consumer_complaint_narrative is not null",
+      "state": {
+        "complaint": "consumer_complaint_narrative",
+        "state": "state",
+        "submitted_via": "submitted_via"
+      },
+      "truth": {
+        "product": "product",
+        "will_dispute": "`consumer_disputed?` == 'Yes'",
+        "expects_monetary_relief": "company_response_to_consumer == 'Closed with monetary relief'"
+      },
+      "stratify": {
+        "column": "product"
+      },
+      "n": 500,
+      "max_state_chars": 2000
+    },
+    {
+      "id": "amazon-food",
+      "source": {
+        "kind": "dataset",
+        "ref": "snap/amazon-fine-food-reviews",
+        "file": "Reviews.csv"
+      },
+      "state": {
+        "summary": "Summary",
+        "review": "Text"
+      },
+      "truth": {
+        "stars": "Score",
+        "would_recommend": "Score >= 4"
+      },
+      "stratify": {
+        "column": "Score",
+        "equal": true
+      },
+      "n": 500,
+      "max_state_chars": 2000
+    },
+    {
+      "id": "telco",
+      "source": {
+        "kind": "dataset",
+        "ref": "blastchar/telco-customer-churn",
+        "file": "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+      },
+      "state": {
+        "tenure_months": "tenure",
+        "contract": "Contract",
+        "internet_service": "InternetService",
+        "online_security": "OnlineSecurity",
+        "tech_support": "TechSupport",
+        "payment_method": "PaymentMethod",
+        "paperless_billing": "PaperlessBilling",
+        "monthly_charges": "MonthlyCharges",
+        "total_charges": "TotalCharges",
+        "senior_citizen": "SeniorCitizen",
+        "partner": "Partner",
+        "dependents": "Dependents"
+      },
+      "truth": {
+        "will_churn": "Churn == 'Yes'"
+      },
+      "stratify": {
+        "column": "Churn"
+      },
+      "n": 500
+    },
+    {
+      "id": "sms-spam",
+      "source": {
+        "kind": "dataset",
+        "ref": "uciml/sms-spam-collection-dataset",
+        "file": "spam.csv"
+      },
+      "state": {
+        "message": "v2"
+      },
+      "truth": {
+        "spam": "v1 == 'spam'"
+      },
+      "stratify": {
+        "column": "v1"
+      },
+      "n": 200,
+      "role": "smoke"
+    }
+  ],
+  "optional": [
+    {
+      "id": "airline",
+      "source": {
+        "kind": "dataset",
+        "ref": "crowdflower/twitter-airline-sentiment",
+        "file": "Tweets.csv"
+      },
+      "note": "second dataset with annotator confidence (airline_sentiment_confidence, negativereason_confidence); CC BY-NC-SA"
+    },
+    {
+      "id": "prompt-injection",
+      "source": {
+        "kind": "huggingface",
+        "ref": "deepset/prompt-injections"
+      },
+      "note": "guardrail bucket; no credible Kaggle source"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+ "product": {
+  "type": "choice",
+  "instructions": "Which financial product is this complaint about",
+  "criteria": {
+   "mortgage": "Home mortgage or home loan",
+   "debt_collection": "Debt collection practices",
+   "credit_reporting": "Credit report or credit bureau",
+   "credit_card": "Credit card",
+   "bank_account": "Bank account or banking service",
+   "consumer_loan": "Auto, personal or installment loan",
+   "student_loan": "Student loan",
+   "payday_loan": "Payday loan",
+   "money_transfers": "Money transfer or remittance",
+   "prepaid_card": "Prepaid card",
+   "other": "Other financial service"
+  }
+ },
+ "will_dispute": {
+  "type": "noul",
+  "instructions": "After the company responds, will the consumer dispute the response?"
+ },
+ "expects_monetary_relief": {
+  "type": "noul",
+  "instructions": "Is the consumer asking for money back or compensation?"
+ }
+}

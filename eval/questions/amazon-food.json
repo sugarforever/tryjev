@@ -1,0 +1,17 @@
+{
+ "stars": {
+  "type": "score",
+  "instructions": "How many stars did this reviewer give",
+  "criteria": [
+   "1: hated it",
+   "2: disliked it",
+   "3: neutral or mixed",
+   "4: liked it",
+   "5: loved it"
+  ]
+ },
+ "would_recommend": {
+  "type": "noul",
+  "instructions": "Would this reviewer recommend the product?"
+ }
+}

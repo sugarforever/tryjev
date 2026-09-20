@@ -1,0 +1,462 @@
+{"id": "banking77-1779", "state": {"customer_message": "i was supposed to get a refund but my balance hasn't changed, why not?"}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-1776", "state": {"customer_message": "Do you have any idea on when I will receive my refund? I got my statement and it was not there."}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-1793", "state": {"customer_message": "My refund is missing"}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-1762", "state": {"customer_message": "I requested a refund, and never received it. What can I do?"}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-1795", "state": {"customer_message": "I keep checking my bank statements but I don't see a refund that I've requested from a seller. Can you ensure that I receive the refund from the seller?"}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-1783", "state": {"customer_message": "My statement doesn't show that a refund has processed"}, "truth": {"intent": "Refund_not_showing_up", "group": "disputes_refunds"}}
+{"id": "banking77-2859", "state": {"customer_message": "I just got my card and want to use it, how do I activate my card?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-2856", "state": {"customer_message": "how to activate card?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-2873", "state": {"customer_message": "I got my new card but I am not sure if it need s activated and how?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-2842", "state": {"customer_message": "What do I need to do to activate my new card?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-2875", "state": {"customer_message": "I would like to activate my card to use now, can you help me?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-2863", "state": {"customer_message": "How can I start using my card?"}, "truth": {"intent": "activate_my_card", "group": "card"}}
+{"id": "banking77-499", "state": {"customer_message": "If my kids wanted to use your service how old would they have to be?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-496", "state": {"customer_message": "Can I open a bank account for my newborn baby?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-513", "state": {"customer_message": "How old do my kids have to be to use your service?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-482", "state": {"customer_message": "How old do I have to be?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-515", "state": {"customer_message": "How old do my children need to be to open an account?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-503", "state": {"customer_message": "I would like an account for my children, how do I go about doing this?"}, "truth": {"intent": "age_limit", "group": "account_identity"}}
+{"id": "banking77-2979", "state": {"customer_message": "My top up is not working in Apple Pay."}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-2976", "state": {"customer_message": "If I want to top up, can I use Apple Pay?"}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-2993", "state": {"customer_message": "can google pay be used to make a top-up"}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-2962", "state": {"customer_message": "My top-up for Google Pay isn't working"}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-2995", "state": {"customer_message": "How do I troubleshoot Google pay top up?"}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-2983", "state": {"customer_message": "Can I use my American Express stored in Apple Pay to top up?"}, "truth": {"intent": "apple_pay_or_google_pay", "group": "card"}}
+{"id": "banking77-1459", "state": {"customer_message": "Can I use my card at any ATMs?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-1456", "state": {"customer_message": "From where can I withdraw?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-1473", "state": {"customer_message": "Where can I find an ATM to use this card?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-1442", "state": {"customer_message": "Where is the closest Mastercard ATM?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-1475", "state": {"customer_message": "Are there certain ATMs that I can use this card at?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-1463", "state": {"customer_message": "Are there any ATM machines near me?"}, "truth": {"intent": "atm_support", "group": "atm_cash"}}
+{"id": "banking77-339", "state": {"customer_message": "How do I make sure I don't run out of money on my card while traveling?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-336", "state": {"customer_message": "Do you have any limit on the auto top-up?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-353", "state": {"customer_message": "Is there any way to Auto top-up?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-322", "state": {"customer_message": "Will it automatically top-up or do I need to do that manually if there isn't much cash left?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-355", "state": {"customer_message": "What is the auto top up function and where can I find that at?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-343", "state": {"customer_message": "Can I have a auto top-up when my account is short?"}, "truth": {"intent": "automatic_top_up", "group": "top_up"}}
+{"id": "banking77-2699", "state": {"customer_message": "My bank transfer is still not showing up in my account."}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-2696", "state": {"customer_message": "Could you please check one of my transfer which i made few hours ago from my UK bank account, as its not showing yet."}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-2713", "state": {"customer_message": "Where is my transfer from [country]?"}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-2682", "state": {"customer_message": "How long will it take for my transferred money to show up?"}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-2715", "state": {"customer_message": "Where is my money? I transfered it and it isn't in my account."}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-2703", "state": {"customer_message": "Why don't I have my transfer?"}, "truth": {"intent": "balance_not_updated_after_bank_transfer", "group": "transfers"}}
+{"id": "banking77-1059", "state": {"customer_message": "I Submitted a cheque couple days ago, nothing happened to my account yet.Would you please check What could be the possible issue?"}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-1056", "state": {"customer_message": "Are cheques accepted to my account? Mine didn't seem to work."}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-1073", "state": {"customer_message": "Has the check I deposited cleared to I can get the cash?"}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-1042", "state": {"customer_message": "Is there a reason why my account isn't updating because I used a check to  balance my account?"}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-1075", "state": {"customer_message": "How come my cash deposit is not showing up. This can't be right. There must be some mistake. Where did my cash go. You better not have lost it as I need this money asap."}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-1063", "state": {"customer_message": "Why didn't my balance update after my cash or checque deposit?"}, "truth": {"intent": "balance_not_updated_after_cheque_or_cash_deposit", "group": "atm_cash"}}
+{"id": "banking77-2179", "state": {"customer_message": "The money would not transfer to a beneficiary."}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-2176", "state": {"customer_message": "I have tried transferring money numerous times.  All I keep getting is an error message.  Can you tell me what is going on and how this van be fixed?"}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-2193", "state": {"customer_message": "Why would i not be able to do a transfer to a beneficiary?"}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-2162", "state": {"customer_message": "I am not able to do a transfer to an account"}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-2195", "state": {"customer_message": "Can you help with a transfer to an account"}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-2183", "state": {"customer_message": "Why did I receive an error message saying that my transfer was not possible?"}, "truth": {"intent": "beneficiary_not_allowed", "group": "transfers"}}
+{"id": "banking77-699", "state": {"customer_message": "Can I cancel a transfer if is already processed?"}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-696", "state": {"customer_message": "I want to reverse my transaction from earlier"}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-713", "state": {"customer_message": "I made an error in payment yesterday and I need it fixed asap because it's for my rent tomorrow."}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-682", "state": {"customer_message": "Can I cancel my transaction?"}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-715", "state": {"customer_message": "My recent transfer needs to be cancelled immediately; it was a mistake, please can you cancel it before it goes through?"}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-703", "state": {"customer_message": "How do I cancel my transfer?"}, "truth": {"intent": "cancel_transfer", "group": "transfers"}}
+{"id": "banking77-2939", "state": {"customer_message": "I will need to get a new card soon, how do I order?"}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-2936", "state": {"customer_message": "It appears my card expires next month, can I order a new one?"}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-2953", "state": {"customer_message": "My card is about to expire."}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-2922", "state": {"customer_message": "When my card expires what happens to my account?"}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-2955", "state": {"customer_message": "What would the price be for an expired card replacement and how long will it take me to get it?"}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-2943", "state": {"customer_message": "Do you have to order a new card before your current card expires?"}, "truth": {"intent": "card_about_to_expire", "group": "card"}}
+{"id": "banking77-979", "state": {"customer_message": "I am traveling to Germany, Will I be able to use my card there?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-976", "state": {"customer_message": "\n\nWhat businesses accept this card?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-993", "state": {"customer_message": "What places will accept my card?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-962", "state": {"customer_message": "Can I use my card for payment all over the world?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-995", "state": {"customer_message": "Will any business take this card?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-983", "state": {"customer_message": "Is my card usable anywhere?"}, "truth": {"intent": "card_acceptance", "group": "card"}}
+{"id": "banking77-19", "state": {"customer_message": "My card still hasn't arrived after 2 weeks. Is it lost?"}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-16", "state": {"customer_message": "I've been waiting longer than expected for my card."}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-33", "state": {"customer_message": "I'm still waiting on my card to be delivered."}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-2", "state": {"customer_message": "I ordered a card but it has not arrived. Help please!"}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-35", "state": {"customer_message": "I ordered a card and I still haven't received it. It's been two weeks. What can I do?"}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-23", "state": {"customer_message": "I ordered my card 2 weeks ago and it still isn't here? What do I do?"}, "truth": {"intent": "card_arrival", "group": "card"}}
+{"id": "banking77-299", "state": {"customer_message": "How long will it take for the card to arrive?"}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-296", "state": {"customer_message": "I need it delivered on a certain date."}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-313", "state": {"customer_message": "I need my card as soon as possible."}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-282", "state": {"customer_message": "i need my card quick"}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-315", "state": {"customer_message": "What's the U.S. Delivery time?"}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-303", "state": {"customer_message": "Whats the delivery time to the United States?"}, "truth": {"intent": "card_delivery_estimate", "group": "card"}}
+{"id": "banking77-59", "state": {"customer_message": "I found my card, can I add it to the app?"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-56", "state": {"customer_message": "Can you tell me how to link one of your cards that I already have?"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-73", "state": {"customer_message": "How do I link my card"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-42", "state": {"customer_message": "Where do I link the new card?"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-75", "state": {"customer_message": "I have found my lost or stolen card. Is there a way I can link the card with my account through my app again?"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-63", "state": {"customer_message": "How do I link this new card?"}, "truth": {"intent": "card_linking", "group": "card"}}
+{"id": "banking77-379", "state": {"customer_message": "How can I resolve a problem where my card won't go through at all?"}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-376", "state": {"customer_message": "My card isn't working anymore."}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-393", "state": {"customer_message": "I have tried to use my card several times and it does not work."}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-362", "state": {"customer_message": "My card appears to be broken how can I fix it?"}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-395", "state": {"customer_message": "My card doesn't accept any transaction at all. What's wrong??"}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-383", "state": {"customer_message": "My card stopped working"}, "truth": {"intent": "card_not_working", "group": "card"}}
+{"id": "banking77-819", "state": {"customer_message": "Why would I be charged a fee for card payment?"}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-816", "state": {"customer_message": "I made a card payment and a fee is showing up?"}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-833", "state": {"customer_message": "Why do you charge for payments? Why aren't your charges clearly laid out in the agreement?"}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-802", "state": {"customer_message": "Is there a reason I was charged a fee for using my card as payment? I've never had an extra fee before."}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-835", "state": {"customer_message": "There is a fee on my account. Why?"}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-823", "state": {"customer_message": "I paid with card and I think there was a fee applied."}, "truth": {"intent": "card_payment_fee_charged", "group": "fees_charges"}}
+{"id": "banking77-1099", "state": {"customer_message": "Payment i did not do"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-1096", "state": {"customer_message": "Can you freeze my account?  I just saw there are transactions on my account that I don't recognize.  How can I fix this?"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-1113", "state": {"customer_message": "There's a recent charge on my card that I know I didn't make because I've never seen the name before. Can we investigate this?"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-1082", "state": {"customer_message": "I saw a payment i did not do"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-1115", "state": {"customer_message": "There is a strange payment on my statement. What should I do?"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-1103", "state": {"customer_message": "What should I do to get transactions off of my account if I didn't make them?  My card must have been compromised and I need to freeze it asap!"}, "truth": {"intent": "card_payment_not_recognised", "group": "disputes_refunds"}}
+{"id": "banking77-139", "state": {"customer_message": "I purchased an item and the exchange rate I was given was incorrect."}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-136", "state": {"customer_message": "The exchange rate for my transaction last Saturday seems to have been wrong I got charged extra.  Please fix."}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-153", "state": {"customer_message": "The incorrect rate was used in my foreign purchase"}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-122", "state": {"customer_message": "the card payment exchange rate is wrong"}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-155", "state": {"customer_message": "Why is my exchange rate wrong for an item I bought?"}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-143", "state": {"customer_message": "I believe my card payment exchange rate is incorrect."}, "truth": {"intent": "card_payment_wrong_exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-1939", "state": {"customer_message": "ATM still has my card"}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-1936", "state": {"customer_message": "The ATM won't give me my card back."}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-1953", "state": {"customer_message": "I was taking out funds and was unable to regain my card."}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-1922", "state": {"customer_message": "I was retrieving money and my card wouldn't remove."}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-1955", "state": {"customer_message": "The ATM at Metro bank on High St. Kensington didn't return my card. What should I do now that the bank is closed?"}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-1943", "state": {"customer_message": "I have a problem!  The ATM stole my card!"}, "truth": {"intent": "card_swallowed", "group": "card"}}
+{"id": "banking77-2899", "state": {"customer_message": "I've notice I was charged for withdrawing cash, can you explain why?"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2896", "state": {"customer_message": "What is the reason for this fee I got after a simple cash withdrawal?"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2913", "state": {"customer_message": "Why did you charge me for a cash withdrawal?"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2882", "state": {"customer_message": "Why am I being charged when I withdraw cash?"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2915", "state": {"customer_message": "Was charged an ATM fee despite it being a small withdrawal on the 1st day of the month. I thought I was allowed 200 per month?"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2903", "state": {"customer_message": "I thought cash withdrawals didn't have a fee"}, "truth": {"intent": "cash_withdrawal_charge", "group": "atm_cash"}}
+{"id": "banking77-2739", "state": {"customer_message": "It looks like someone else withdrew cash from my account, can you help?"}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2736", "state": {"customer_message": "I am seeing in the App a some cash withdrawal that its not mine"}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2753", "state": {"customer_message": "I didn't take out money from an ATM but my app statement shows that I did. How can I fix this?"}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2722", "state": {"customer_message": "I just lost my wallet and I see that they are already withdrawing money from my account. How can I stop this?"}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2755", "state": {"customer_message": "Cash I didn't get shows in my app."}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2743", "state": {"customer_message": "The app is showing an ATM withdrawl that I didn't make."}, "truth": {"intent": "cash_withdrawal_not_recognised", "group": "atm_cash"}}
+{"id": "banking77-2139", "state": {"customer_message": "I would like to change my pin."}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-2136", "state": {"customer_message": "How can I change my Tholepin ?"}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-2153", "state": {"customer_message": "How do I update the PIN on my account?"}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-2122", "state": {"customer_message": "Is the bank the only place I can change my PIN>"}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-2155", "state": {"customer_message": "Show me how to change my pin?"}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-2143", "state": {"customer_message": "Do cash machines let me change my pin?"}, "truth": {"intent": "change_pin", "group": "pin_security"}}
+{"id": "banking77-1419", "state": {"customer_message": "I see random purchases to my account, was it hacked?"}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-1416", "state": {"customer_message": "Can I use app to freeze account and dispute fraud?"}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-1433", "state": {"customer_message": "I think someone has access to my card numbers that shouldn't."}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-1402", "state": {"customer_message": "Someone I don't know has used my card without permission."}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-1435", "state": {"customer_message": "What do I do if I think someone managed to get my card information?"}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-1423", "state": {"customer_message": "What should I do if I think that someone else may be using my card."}, "truth": {"intent": "compromised_card", "group": "pin_security"}}
+{"id": "banking77-579", "state": {"customer_message": "Can you help my fix my contactless?"}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-576", "state": {"customer_message": "Fix my contactless"}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-593", "state": {"customer_message": "Help me with my contactless which isn't working."}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-562", "state": {"customer_message": "what is required documents for new card process ?"}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-595", "state": {"customer_message": "How do I use contactless pay?"}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-583", "state": {"customer_message": "The NFC payment wouldn't work on the bus today. Help?"}, "truth": {"intent": "contactless_not_working", "group": "other"}}
+{"id": "banking77-3059", "state": {"customer_message": "Can I get a card even if I live outside the UK?"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-3056", "state": {"customer_message": "Is my country supported"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-3073", "state": {"customer_message": "What countries do you currently do business in?"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-3042", "state": {"customer_message": "Can I use your app if I am from the EU?"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-3075", "state": {"customer_message": "If i'm not in the UK, can I still get a card?"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-3063", "state": {"customer_message": "What countries are you currently in?"}, "truth": {"intent": "country_support", "group": "account_identity"}}
+{"id": "banking77-1819", "state": {"customer_message": "Why are you declining my payment? Everything was fine."}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1816", "state": {"customer_message": "I have a card payment that was declined, but why?"}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1833", "state": {"customer_message": "I finally got my new card and was very excited to use it today. However, my payment kept declining. What is happening?"}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1802", "state": {"customer_message": "Why was my card payment declined?"}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1835", "state": {"customer_message": "My card didn't work in one of the shops."}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1823", "state": {"customer_message": "My card was not accepted."}, "truth": {"intent": "declined_card_payment", "group": "card"}}
+{"id": "banking77-1579", "state": {"customer_message": "Why did the ATM machine fail to give me a cash withdrawal?"}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1576", "state": {"customer_message": "I was declined when I tried to get cash."}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1593", "state": {"customer_message": "I couldn't get cash at the atm"}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1562", "state": {"customer_message": "This is very frustrating. I can't get my card to work on any ATM I try and I've tried 3 of them so far. What's going on? Can you please fix this issue immediately?"}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1595", "state": {"customer_message": "Why could I not choose cash at the ATM?"}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1583", "state": {"customer_message": "How come I can't take money out of the ATM?"}, "truth": {"intent": "declined_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-1739", "state": {"customer_message": "When I try and to buy something using my card it keeps getting declined."}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1736", "state": {"customer_message": "Why was I unable to do a transfer?"}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1753", "state": {"customer_message": "Why would my transfer be declined? I've checked that I've put in all the right details, but it is still declined."}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1722", "state": {"customer_message": "I am getting continuous failure for all my transfers. I have cross checked each recipient detail again and again and everything is correct."}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1755", "state": {"customer_message": "I tried to buy something online yesterday but it wouldn't stop saying declined. Tried again today but same thing happened. What's Broken?"}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1743", "state": {"customer_message": "What is the reason my transfer was declined?"}, "truth": {"intent": "declined_transfer", "group": "transfers"}}
+{"id": "banking77-1499", "state": {"customer_message": "A couple weeks ago some money was deducted from my account by some seller that I don't remember. I'm pretty sure I didn't do that, but is it possible to trace back who that is just to make sure?"}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1496", "state": {"customer_message": "Unknown direct deposit"}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1513", "state": {"customer_message": "Why is there a direct debit I didn't make showing in the app?"}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1482", "state": {"customer_message": "I have a strange direct debit in my statement"}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1515", "state": {"customer_message": "I have a direct debit transaction I have not set up, but would like to ."}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1503", "state": {"customer_message": "why does the app show a direct debit payment that I did not authorize"}, "truth": {"intent": "direct_debit_payment_not_recognised", "group": "transfers"}}
+{"id": "banking77-1379", "state": {"customer_message": "I have to have several disposable cards per day."}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1376", "state": {"customer_message": "What is the limit to number of transactions I can do with a disposable card?"}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1393", "state": {"customer_message": "How many times can I use a disposable card?"}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1362", "state": {"customer_message": "I need to use my disposable card multiple times a day, is there a cutoff limit?"}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1395", "state": {"customer_message": "Do you know what the restriction of the disposable cards are?"}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1383", "state": {"customer_message": "How many disposable cards can I make in a single day?"}, "truth": {"intent": "disposable_card_limits", "group": "card"}}
+{"id": "banking77-1139", "state": {"customer_message": "How can I modify my details?"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-1136", "state": {"customer_message": "I need to update my personal details"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-1153", "state": {"customer_message": "I have moved.  Where can I update my details?"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-1122", "state": {"customer_message": "How do I update my details?"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-1155", "state": {"customer_message": "Should I just wait until the post office sends a change of address form?"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-1143", "state": {"customer_message": "Is it possible to edit my personal details on the app?"}, "truth": {"intent": "edit_personal_details", "group": "account_identity"}}
+{"id": "banking77-2779", "state": {"customer_message": "If I want to exchange currency, will there be extras?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-2776", "state": {"customer_message": "How much is a cross currency exchange, and can I check to see if I have any discounts available?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-2793", "state": {"customer_message": "Is there a discount for frequently exchanging currencies?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-2762", "state": {"customer_message": "What are your currency exchange fees?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-2795", "state": {"customer_message": "Will it cost more money if my currency needs to be exchanged?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-2783", "state": {"customer_message": "What is the exchange fee?"}, "truth": {"intent": "exchange_charge", "group": "exchange_fx"}}
+{"id": "banking77-99", "state": {"customer_message": "Where do you get your exchange rates from?"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-96", "state": {"customer_message": "Can you tell me where you get your exchange rates?"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-113", "state": {"customer_message": "From where are you getting your exchange rates?"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-82", "state": {"customer_message": "How did you come up with your exchange rates?"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-115", "state": {"customer_message": "why do your exchange rates change"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-103", "state": {"customer_message": "What do you base your exchange rates on?"}, "truth": {"intent": "exchange_rate", "group": "exchange_fx"}}
+{"id": "banking77-419", "state": {"customer_message": "I need AUD not GBP, how do I change it?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-416", "state": {"customer_message": "How would I use my money in a different country?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-433", "state": {"customer_message": "Is there currency exchange on this app?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-402", "state": {"customer_message": "Can I change from one currency to another?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-435", "state": {"customer_message": "I think I want AUD and not GBP, can you help?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-423", "state": {"customer_message": "I might need AUD instead of GBP, how to change?"}, "truth": {"intent": "exchange_via_app", "group": "exchange_fx"}}
+{"id": "banking77-179", "state": {"customer_message": "What would be the reason there's an extra fee on my statement?"}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-176", "state": {"customer_message": "I need information about an extra €1 fee in my statement."}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-193", "state": {"customer_message": "What is the purpose of the extra fee that is showing up on my statement?"}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-162", "state": {"customer_message": "I'm not okay with this fee on my statement."}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-195", "state": {"customer_message": "What is the extra  €1 fee in my statement"}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-183", "state": {"customer_message": "Why was I overcharged a pound!?"}, "truth": {"intent": "extra_charge_on_statement", "group": "disputes_refunds"}}
+{"id": "banking77-2299", "state": {"customer_message": "Why would a transfer fail?"}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-2296", "state": {"customer_message": "My transfer will not go through."}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-2313", "state": {"customer_message": "help me with my transfer"}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-2282", "state": {"customer_message": "My transfer didn't work"}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-2315", "state": {"customer_message": "can you tell me why my transfer failed?"}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-2303", "state": {"customer_message": "Why couldn't I complete a transfer?"}, "truth": {"intent": "failed_transfer", "group": "transfers"}}
+{"id": "banking77-259", "state": {"customer_message": "Can I hold money in other currencies?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-256", "state": {"customer_message": "What fiat currencies are supported for holding and exchange?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-273", "state": {"customer_message": "Can I hold money in multiple currencies?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-242", "state": {"customer_message": "Do you support all fiat currencies?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-275", "state": {"customer_message": "Besides USD what other currencies can I have?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-263", "state": {"customer_message": "Can you tell me what currency I can have?"}, "truth": {"intent": "fiat_currency_support", "group": "exchange_fx"}}
+{"id": "banking77-2619", "state": {"customer_message": "Can i get a single use virtual card"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-2616", "state": {"customer_message": "Can you explain disposable cards?"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-2633", "state": {"customer_message": "Will I be able to get a disposable virtual card as well?"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-2602", "state": {"customer_message": "What can you tell me about getting a virtual disposable card?"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-2635", "state": {"customer_message": "where do I request a disposable virtual card?"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-2623", "state": {"customer_message": "What is the process of obtaining a disposable virtual card"}, "truth": {"intent": "get_disposable_virtual_card", "group": "card"}}
+{"id": "banking77-1259", "state": {"customer_message": "what is the process for setting up a pin"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-1256", "state": {"customer_message": "About this card PIN?"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-1273", "state": {"customer_message": "Is PIN delivered separately?"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-1242", "state": {"customer_message": "I do not have my pin"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-1275", "state": {"customer_message": "What do I need to do for a PIN?"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-1263", "state": {"customer_message": "Is my PIN located on my account somewhere?"}, "truth": {"intent": "get_physical_card", "group": "card"}}
+{"id": "banking77-2419", "state": {"customer_message": "May I have another card?"}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-2416", "state": {"customer_message": "Can I have a second card?"}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-2433", "state": {"customer_message": "Am I able to get a second card?"}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-2402", "state": {"customer_message": "I want to order another crad"}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-2435", "state": {"customer_message": "When trying to get more than one card is there a extra amount that needs to be paid?"}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-2423", "state": {"customer_message": "I was looking to buy another card today."}, "truth": {"intent": "getting_spare_card", "group": "card"}}
+{"id": "banking77-939", "state": {"customer_message": "Where can I order a virtual card?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-936", "state": {"customer_message": "What are the steps to getting a virtual card?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-953", "state": {"customer_message": "Where are the virtual cards located?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-922", "state": {"customer_message": "Where can I find a virtual card?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-955", "state": {"customer_message": "When should I receive my virtual card?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-943", "state": {"customer_message": "Are virtual cards available to get?"}, "truth": {"intent": "getting_virtual_card", "group": "card"}}
+{"id": "banking77-459", "state": {"customer_message": "I need help with a lost card"}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-456", "state": {"customer_message": "Can you freeze my card it was stolen"}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-473", "state": {"customer_message": "I believe my credit card was stolen."}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-442", "state": {"customer_message": "Someone stole my card. I need to report it stolen. I made a police report already, but how do I report it with you?"}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-475", "state": {"customer_message": "Somebody has stolen my card, I need help please."}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-463", "state": {"customer_message": "How can I freeze a stolen card?"}, "truth": {"intent": "lost_or_stolen_card", "group": "pin_security"}}
+{"id": "banking77-1659", "state": {"customer_message": "lost phone, can i still access account?"}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-1656", "state": {"customer_message": "My phone is not with me at the moment so I will not be able to access the app."}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-1673", "state": {"customer_message": "My phone is lost.  What do I do to prevent someone from using the app?"}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-1642", "state": {"customer_message": "If my phone is missing, can I block someone from using the app?"}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-1675", "state": {"customer_message": "I lost my phone!"}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-1663", "state": {"customer_message": "I was mugged and everything taken.  What do I do to protect my account?"}, "truth": {"intent": "lost_or_stolen_phone", "group": "pin_security"}}
+{"id": "banking77-2499", "state": {"customer_message": "Is a non-electronic card available as well"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-2496", "state": {"customer_message": "Where are cards delivered to?"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-2513", "state": {"customer_message": "Where will I find my card?"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-2482", "state": {"customer_message": "What do you charge for physical cards?"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-2515", "state": {"customer_message": "Where can cards be delivered?"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-2503", "state": {"customer_message": "can I have a non virtual card?"}, "truth": {"intent": "order_physical_card", "group": "card"}}
+{"id": "banking77-1539", "state": {"customer_message": "I have forgotten my passcode to access my app"}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1536", "state": {"customer_message": "I need to reset my passcode. How do I do it?"}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1553", "state": {"customer_message": "What should I do if I forgot my passcode?"}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1522", "state": {"customer_message": "How do I retrieve my passcode?"}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1555", "state": {"customer_message": "Tell me how to reset the passcode."}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1543", "state": {"customer_message": "I need help resetting my passcode to access my app."}, "truth": {"intent": "passcode_forgotten", "group": "pin_security"}}
+{"id": "banking77-1619", "state": {"customer_message": "My card payment is pending."}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-1616", "state": {"customer_message": "What is a pending payment?"}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-1633", "state": {"customer_message": "I bought some things this morning but the payment shows that it is pending"}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-1602", "state": {"customer_message": "My card payment is still pending."}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-1635", "state": {"customer_message": "I had a payment that I made and it's been some amount of time and would like to know when it's suppose to go though."}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-1623", "state": {"customer_message": "what does pending mean?"}, "truth": {"intent": "pending_card_payment", "group": "card"}}
+{"id": "banking77-219", "state": {"customer_message": "Hey, my card was declined at an ATM in the city centre theatre. My account says the transaction is pending, though. I didn't get the money, though, so what does that mean?"}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-216", "state": {"customer_message": "how long til my cash out goes through?"}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-233", "state": {"customer_message": "Why does it say pending cash withdrawal on my statement?"}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-202", "state": {"customer_message": "My transaction is still showing that is pending from my cash withdrawal."}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-235", "state": {"customer_message": "Where's accounting for my cash withdrawal?"}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-223", "state": {"customer_message": "Is my cash withdrawal pending?"}, "truth": {"intent": "pending_cash_withdrawal", "group": "atm_cash"}}
+{"id": "banking77-659", "state": {"customer_message": "I topped up by card a while ago and it's still pending, surely it should be done by now?"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-656", "state": {"customer_message": "why hasn't my top up gone through yet"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-673", "state": {"customer_message": "Where is the money I topped off with?"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-642", "state": {"customer_message": "What would lead to my top up still pending?"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-675", "state": {"customer_message": "Why is my top-up still pending?"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-663", "state": {"customer_message": "Why is my top up still pending?"}, "truth": {"intent": "pending_top_up", "group": "top_up"}}
+{"id": "banking77-1859", "state": {"customer_message": "When will the transfer go through?"}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-1856", "state": {"customer_message": "How long does a transfer stay pending?"}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-1873", "state": {"customer_message": "Transferring money in 2018 to another country shouldn't take this long. My transfer has been pending for too long. I verified my account details are correct."}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-1842", "state": {"customer_message": "Why is my transfer not done yet?"}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-1875", "state": {"customer_message": "The transfer is coming up as pending the payment is due today. Will I be charged a fee?"}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-1863", "state": {"customer_message": "What is the cause that the transfer shows as pending?"}, "truth": {"intent": "pending_transfer", "group": "transfers"}}
+{"id": "banking77-539", "state": {"customer_message": "I'v exhausted all the of times I can try my PIN"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-536", "state": {"customer_message": "How do I deal with a blocked PIN?"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-553", "state": {"customer_message": "Can I unblock my pin?"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-522", "state": {"customer_message": "Will you reinstate my PIN?"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-555", "state": {"customer_message": "My card's frozen, what can I do?"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-543", "state": {"customer_message": "Why did I get blocked?"}, "truth": {"intent": "pin_blocked", "group": "pin_security"}}
+{"id": "banking77-2259", "state": {"customer_message": "How can my friend send me money?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-2256", "state": {"customer_message": "What are the ways for others to transfer me money?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-2273", "state": {"customer_message": "How do I get my paycheck through this?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-2242", "state": {"customer_message": "Can I receive my salary in a currency other than what it is deposited in?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-2275", "state": {"customer_message": "Can I get paid in a different currency?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-2263", "state": {"customer_message": "I received my salary in GBP. How do I change this to my currency?"}, "truth": {"intent": "receiving_money", "group": "transfers"}}
+{"id": "banking77-1699", "state": {"customer_message": "I bought something but now I would like a refund. How do I do that?"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-1696", "state": {"customer_message": "What do I need to do to get a refund?"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-1713", "state": {"customer_message": "I bought this item and was charged the wrong amount can I get a refund?"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-1682", "state": {"customer_message": "Get an item refund"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-1715", "state": {"customer_message": "What's the refund process?"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-1703", "state": {"customer_message": "I would appreciate it if I could get an item refunded"}, "truth": {"intent": "request_refund", "group": "disputes_refunds"}}
+{"id": "banking77-2099", "state": {"customer_message": "I think my card payment had been return"}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-2096", "state": {"customer_message": "My credit card cancelled a payment for a purchase."}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-2113", "state": {"customer_message": "I did a payment but the app reverted it"}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-2082", "state": {"customer_message": "the app reverted my payment"}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-2115", "state": {"customer_message": "There was a canceled payment for my card."}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-2103", "state": {"customer_message": "Why was my card payment cancelled?"}, "truth": {"intent": "reverted_card_payment?", "group": "disputes_refunds"}}
+{"id": "banking77-899", "state": {"customer_message": "How can I use American Express to add money to my account?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-896", "state": {"customer_message": "What credit cards are supported?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-913", "state": {"customer_message": "Can I use any currency to add money?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-882", "state": {"customer_message": "I have 1 other US card.  Can you take that?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-915", "state": {"customer_message": "What cards and currencies will suffice?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-903", "state": {"customer_message": "I want to add money but don't know what currencies you accept, can you tell me?"}, "truth": {"intent": "supported_cards_and_currencies", "group": "exchange_fx"}}
+{"id": "banking77-1899", "state": {"customer_message": "How do I get rid of my account ASAP?"}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-1896", "state": {"customer_message": "I need your help in deleting my account."}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-1913", "state": {"customer_message": "I wish to close my account. I do not like the service you provide."}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-1882", "state": {"customer_message": "My account needs to be deleted."}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-1915", "state": {"customer_message": "I don't find your services useful anymore, how do I delete my account?"}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-1903", "state": {"customer_message": "Please delete my account. I am not happy with the service from your company."}, "truth": {"intent": "terminate_account", "group": "account_identity"}}
+{"id": "banking77-619", "state": {"customer_message": "Will topping up by transfer lead to a charge on my account?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-616", "state": {"customer_message": "If I transfer money from my bank to top-up my account will I be charged?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-633", "state": {"customer_message": "Is a SWIFT transfer okay?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-602", "state": {"customer_message": "I need to make a transfer, what will the fee be?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-635", "state": {"customer_message": "When topping up by transfer, will I be charged?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-623", "state": {"customer_message": "How much is the fee for a SEPA transfer?"}, "truth": {"intent": "top_up_by_bank_transfer_charge", "group": "top_up"}}
+{"id": "banking77-2819", "state": {"customer_message": "Will I be charged if I use European bank card for top up?"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2816", "state": {"customer_message": "What fee is included if I top up by card?"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2833", "state": {"customer_message": "Is there a charge or discount if I use a European bank in a top up?"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2802", "state": {"customer_message": "i was charged when i used a us issued card. why and what cards are free to use to add money"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2835", "state": {"customer_message": "Can I top up using an international card"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2823", "state": {"customer_message": "What do you charge for top ups?"}, "truth": {"intent": "top_up_by_card_charge", "group": "top_up"}}
+{"id": "banking77-2459", "state": {"customer_message": "I want to top up using cash, where can I do that?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2456", "state": {"customer_message": "I need to top up cash, How do I do it?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2473", "state": {"customer_message": "Can I top up my account with a cheque?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2442", "state": {"customer_message": "Can I top up with a cheque?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2475", "state": {"customer_message": "I have a cheque here, can I use it to top off my account?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2463", "state": {"customer_message": "How can I top up with cash?"}, "truth": {"intent": "top_up_by_cash_or_cheque", "group": "top_up"}}
+{"id": "banking77-2659", "state": {"customer_message": "I topped up but the app did not accept it."}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-2656", "state": {"customer_message": "Why was my top-up unsuccessful?"}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-2673", "state": {"customer_message": "My top-up has failed."}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-2642", "state": {"customer_message": "I have a top up that didn't go through.  Why?"}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-2675", "state": {"customer_message": "I really need money from my card today, but my card is getting declined. Please help!!"}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-2663", "state": {"customer_message": "Can you tell me if my pop-up went through?"}, "truth": {"intent": "top_up_failed", "group": "top_up"}}
+{"id": "banking77-739", "state": {"customer_message": "Can I top-up as much as I want?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-736", "state": {"customer_message": "Tell me if there are any top-up limits?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-753", "state": {"customer_message": "Is there an amount limit to my top-up?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-722", "state": {"customer_message": "Is there a top up limit for my account?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-755", "state": {"customer_message": "Is there a maximum i can top up?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-743", "state": {"customer_message": "What is the top-ups limit?"}, "truth": {"intent": "top_up_limits", "group": "top_up"}}
+{"id": "banking77-1019", "state": {"customer_message": "I went to top up and it is no longer there.  Was it sent back?"}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1016", "state": {"customer_message": "I think my top-up was cancelled."}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1033", "state": {"customer_message": "Causes of top-up cancellation"}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1002", "state": {"customer_message": "Is it possible to tell if my top up has reverted?"}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1035", "state": {"customer_message": "Has my top up been reverted?"}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1023", "state": {"customer_message": "When I topped up, the app reverted my funds."}, "truth": {"intent": "top_up_reverted", "group": "top_up"}}
+{"id": "banking77-1339", "state": {"customer_message": "Will my friend be able to top off my account?"}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1336", "state": {"customer_message": "Can I give my friends access to my account so they can top it up for me?"}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1353", "state": {"customer_message": "My friends want to top up my account"}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1322", "state": {"customer_message": "How can I top up by card?"}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1355", "state": {"customer_message": "show me how to top up with my card"}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1343", "state": {"customer_message": "Help me transfer money to my credit card."}, "truth": {"intent": "topping_up_by_card", "group": "top_up"}}
+{"id": "banking77-1979", "state": {"customer_message": "I had a duplicate card and got charged twice. How do I resolve this?"}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-1976", "state": {"customer_message": "Why is there a transaction that shows multiple times?"}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-1993", "state": {"customer_message": "Looks like my card payment was duplicated. I went to pay at the store earlier, got declined once,second time it works. App still stays pending for one of the payments. Can you please remove one of them as it's wrong and clearly was declined?"}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-1962", "state": {"customer_message": "Why am I being charged twice fro a restaurant?"}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-1995", "state": {"customer_message": "I recently got charged twice from a restaurant that I was at this week and I would like for one of those payments to be removed from my account."}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-1983", "state": {"customer_message": "Please check payments on my card. There is a duplicate and I only bought it once."}, "truth": {"intent": "transaction_charged_twice", "group": "disputes_refunds"}}
+{"id": "banking77-2219", "state": {"customer_message": "I'm not sure why I was charged an extra fee for transferring funds."}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2216", "state": {"customer_message": "Why were there additional charges when transferring?"}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2233", "state": {"customer_message": "What extra charges are there?"}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2202", "state": {"customer_message": "Is there a reason I was charged a fee to transfer?"}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2235", "state": {"customer_message": "I transferred money and was charged and want to know why."}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2223", "state": {"customer_message": "I sent out money, but was charged extra for transferring. Why?"}, "truth": {"intent": "transfer_fee_charged", "group": "transfers"}}
+{"id": "banking77-2339", "state": {"customer_message": "How can I transfer money from an outside bank?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-2336", "state": {"customer_message": "I want to top my account by using a bank transfer. How would that work?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-2353", "state": {"customer_message": "I want to use bank transfer for topping up my account. How is it handled?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-2322", "state": {"customer_message": "How do I go forth on transferring money into my account?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-2355", "state": {"customer_message": "How can I transfer money to my account?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-2343", "state": {"customer_message": "How can I perform a dual money transferring from one account to another?"}, "truth": {"intent": "transfer_into_account", "group": "transfers"}}
+{"id": "banking77-859", "state": {"customer_message": "I sent money.  They haven't received it."}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-856", "state": {"customer_message": "I transferred the rent payment for my new place a couple days ago but the landlord says it's not there yet, despite showing up as done on my side. I checked the account number I sent it to and it's definitely correct. Can you please verify if the transaction really went through or not?"}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-873", "state": {"customer_message": "When will my funds transfer?"}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-842", "state": {"customer_message": "I am still waiting for a transaction to be completed"}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-875", "state": {"customer_message": "How long do transfers need to come through? I sent some money to a friend, she needs it urgently, but seems it's still not there yet after a couple hours."}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-863", "state": {"customer_message": "I transferred some money but the receiver can't pick it up for some reason."}, "truth": {"intent": "transfer_not_received_by_recipient", "group": "transfers"}}
+{"id": "banking77-2059", "state": {"customer_message": "How many days does a transfer from the US take?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-2056", "state": {"customer_message": "How long do i have to wait for a transfer to reach my account?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-2073", "state": {"customer_message": "How long is it going to take for my funds to show in my account?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-2042", "state": {"customer_message": "I need a fast transfer from China?  How fast will it be?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-2075", "state": {"customer_message": "How long will it take for the transfer to reach my account?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-2063", "state": {"customer_message": "How long does it take for a transfer?"}, "truth": {"intent": "transfer_timing", "group": "transfers"}}
+{"id": "banking77-1219", "state": {"customer_message": "I can not get the app to know it is me."}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1216", "state": {"customer_message": "I am having trouble proving my identity."}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1233", "state": {"customer_message": "app doesnt think its me"}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1202", "state": {"customer_message": "Why doesn't the app believe I am who I say I am?"}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1235", "state": {"customer_message": "I am having issues with identity verification"}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1223", "state": {"customer_message": "The app doesn't believe that I am me"}, "truth": {"intent": "unable_to_verify_identity", "group": "account_identity"}}
+{"id": "banking77-3019", "state": {"customer_message": "What are the steps to verify my identity?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-3016", "state": {"customer_message": "What kind of documents do I need for the identity check?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-3033", "state": {"customer_message": "Do I need any kind of documentation for the identity check?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-3002", "state": {"customer_message": "I need to verify my identity, but how do I do that?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-3035", "state": {"customer_message": "Is there any way to verify who I am?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-3023", "state": {"customer_message": "Can I verify my identity online?"}, "truth": {"intent": "verify_my_identity", "group": "account_identity"}}
+{"id": "banking77-2019", "state": {"customer_message": "What is the source of my money?"}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2016", "state": {"customer_message": "I need my funds verified."}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2033", "state": {"customer_message": "what is source of my funds, need to verify"}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2002", "state": {"customer_message": "Where are my funds being sourced from?"}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2035", "state": {"customer_message": "How can I check the source of my fund?"}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2023", "state": {"customer_message": "I have to verify the source of my funds"}, "truth": {"intent": "verify_source_of_funds", "group": "account_identity"}}
+{"id": "banking77-2379", "state": {"customer_message": "How do I find the verification code for my top-up card?"}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2376", "state": {"customer_message": "Is it necessary to verify my top up?"}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2393", "state": {"customer_message": "The top-up verification code is missing"}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2362", "state": {"customer_message": "Where can I find the top-up verification code?"}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2395", "state": {"customer_message": "I cannot locate the verification code for my top-up card. Please help me."}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2383", "state": {"customer_message": "I can't find the top-up verification code."}, "truth": {"intent": "verify_top_up", "group": "top_up"}}
+{"id": "banking77-2539", "state": {"customer_message": "How can I fix a problem where my virtual card is rejected?"}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-2536", "state": {"customer_message": "I cannot make transactions with my virtual card."}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-2553", "state": {"customer_message": "My disposable virtual card was rejected by the merchant, please help?"}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-2522", "state": {"customer_message": "My disposable virtual card is broken."}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-2555", "state": {"customer_message": "Tell me why my virtual disposable card won't work."}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-2543", "state": {"customer_message": "Why can't I get my virtual card to work?"}, "truth": {"intent": "virtual_card_not_working", "group": "card"}}
+{"id": "banking77-1299", "state": {"customer_message": "Am I able to choose my card?"}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1296", "state": {"customer_message": "Am I allowed to use any card to make a payment?"}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1313", "state": {"customer_message": "Please give me both a visa and a master card."}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1282", "state": {"customer_message": "How do I get a visa card?"}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1315", "state": {"customer_message": "What major card payments are accepted?"}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1303", "state": {"customer_message": "I would like to apply for a visa card."}, "truth": {"intent": "visa_or_mastercard", "group": "card"}}
+{"id": "banking77-1179", "state": {"customer_message": "Do I need to verify my identity to use my account?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1176", "state": {"customer_message": "What is the point of an identity check?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1193", "state": {"customer_message": "Do I need to verify my identity?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1162", "state": {"customer_message": "do I need to verify my identity every time I log into my account?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1195", "state": {"customer_message": "Can I use my account if the identity verification is not complete?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-1183", "state": {"customer_message": "Do I really need to verify my identity?"}, "truth": {"intent": "why_verify_identity", "group": "account_identity"}}
+{"id": "banking77-779", "state": {"customer_message": "I tried to get $100 but I just got $20"}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-776", "state": {"customer_message": "Why did I only get $20 when I tried to get $100"}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-793", "state": {"customer_message": "I just got $20 when I tried to get $100"}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-762", "state": {"customer_message": "How come the ATM gave me less cash than what I asked for?"}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-795", "state": {"customer_message": "The ATM didn't give me the the withdraw amount requested."}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-783", "state": {"customer_message": "I withdrew money but the full amount wasn't dispensed."}, "truth": {"intent": "wrong_amount_of_cash_received", "group": "atm_cash"}}
+{"id": "banking77-2579", "state": {"customer_message": "Can I make a withdraw if I am out of country from with out any fees at an ATM?"}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}
+{"id": "banking77-2576", "state": {"customer_message": "It seems I was overcharged when I used an ATM while on vacation. If I knew about your fees in advance I sure would have gone somewhere else."}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}
+{"id": "banking77-2593", "state": {"customer_message": "The rate of exchange isn't right for my cash withdrawal."}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}
+{"id": "banking77-2562", "state": {"customer_message": "I made a withdraw from the ATM this past holiday and it seems like a was charged too much. If I would have   known about these charges I wouldn't have made a withdraw."}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}
+{"id": "banking77-2595", "state": {"customer_message": "I used an ATM in a foreign currency but the rate applied is wrong!"}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}
+{"id": "banking77-2583", "state": {"customer_message": "I need the right foreign money, at the right rate, at ATMs, when I go abroad."}, "truth": {"intent": "wrong_exchange_rate_for_cash_withdrawal", "group": "exchange_fx"}}

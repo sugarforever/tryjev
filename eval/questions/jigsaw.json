@@ -1,0 +1,25 @@
+{
+ "toxic": {
+  "type": "noul",
+  "instructions": "Would a reasonable moderator consider this comment toxic (rude, disrespectful, or likely to make someone leave the discussion)?"
+ },
+ "action": {
+  "type": "choice",
+  "instructions": "What should a moderation system do with this comment",
+  "criteria": {
+   "allow": "Publish as is",
+   "review": "Hold for a human moderator",
+   "remove": "Do not publish"
+  }
+ },
+ "severity": {
+  "type": "score",
+  "instructions": "How severe is the toxicity",
+  "criteria": [
+   "none: not toxic",
+   "mild: rude or dismissive",
+   "strong: insulting or hateful",
+   "severe: threats or extreme hate"
+  ]
+ }
+}
