@@ -2,4 +2,4 @@
 name = "jev-kaggle-eval"
 version = "0.1.0"
 requires-python = ">=3.11"
-dependencies = ["pandas>=2.2", "numpy", "requests", "scikit-learn", "matplotlib", "kaggle"]
+dependencies = ["pandas>=2.2", "numpy", "requests", "scikit-learn", "matplotlib", "kaggle", "laya==0.3.11"]

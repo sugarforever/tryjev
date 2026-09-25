@@ -1,6 +1,6 @@
-"""Run one dataset's samples through Jev (OpenRouter decisions API) or an LLM baseline.
+"""Run one dataset's samples through Jev, local Laya, or an LLM baseline.
 
-  uv run run.py <dataset> [--provider jev|llm] [--model ...] [--limit N] [--repeat K] [--concurrency 6]
+  uv run run.py <dataset> [--provider jev|laya|llm] [--model ...] [--limit N] [--repeat K] [--concurrency 6]
 
 Writes runs/<dataset>-<provider>-<model>-<date>.jsonl: {id, truth, answers, usage, latency_ms, model, repeat}.
 Key: OPENROUTER_API_KEY from the environment (source ~/.zshrc-custom). Never logged.
@@ -16,6 +16,7 @@ OR = "https://openrouter.ai/api"
 HEADERS = lambda: {"Authorization": "Bearer " + os.environ["OPENROUTER_API_KEY"], "Content-Type": "application/json",
                    "X-OpenRouter-Title": "jev-kaggle-eval", "HTTP-Referer": "https://www.tryjev.xyz"}
 JEV_MODEL = "typesafe/jev-1.13"
+LAYA_MODEL = "convaiinnovations/laya"
 
 
 def post(url, body, tries=5):
@@ -33,6 +34,24 @@ def post(url, body, tries=5):
 def call_jev(state, questions, model):
     res, ms = post(f"{OR}/alpha/decisions", {"model": model, "state": state, "questions": questions})
     return {"answers": res["answers"], "usage": res.get("usage"), "model": res.get("model"), "latency_ms": ms}
+
+
+def load_laya(model, device):
+    from laya import Agent
+
+    return Agent(model, device=device)
+
+
+def call_laya(agent, state, questions, model):
+    started = time.perf_counter()
+    result = agent.predict(state, questions)
+    latency_ms = (time.perf_counter() - started) * 1000
+    return {
+        "answers": result["answers"],
+        "usage": {"input_tokens": None, "output_tokens": None, "cost": 0},
+        "model": model,
+        "latency_ms": latency_ms,
+    }
 
 
 def llm_schema(questions):
@@ -70,19 +89,33 @@ def call_llm(state, questions, model):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("dataset"); ap.add_argument("--provider", default="jev", choices=["jev", "llm"])
+    ap = argparse.ArgumentParser(); ap.add_argument("dataset"); ap.add_argument("--provider", default="jev", choices=["jev", "laya", "llm"])
     ap.add_argument("--model"); ap.add_argument("--limit", type=int); ap.add_argument("--repeat", type=int, default=1); ap.add_argument("--concurrency", type=int, default=6)
+    ap.add_argument("--device", default="auto", choices=["auto", "cpu", "cuda", "mps"], help="Laya execution device")
     a = ap.parse_args()
-    model = a.model or (JEV_MODEL if a.provider == "jev" else "anthropic/claude-haiku-4.5")
+    model = a.model or (JEV_MODEL if a.provider == "jev" else LAYA_MODEL if a.provider == "laya" else "anthropic/claude-haiku-4.5")
     questions = json.loads((HERE / "questions" / f"{a.dataset}.json").read_text())
     rows = [json.loads(l) for l in (HERE / "samples" / f"{a.dataset}.jsonl").open()][: a.limit]
     tag = model.split("/")[-1].replace(":", "-")
     out = HERE / "runs" / f"{a.dataset}-{a.provider}-{tag}-{date.today():%Y%m%d}{'-x' + str(a.repeat) if a.repeat > 1 else ''}.jsonl"
     done = {(json.loads(l)["id"], json.loads(l)["repeat"]) for l in out.open()} if out.exists() else set()
     jobs = [(r, k) for k in range(a.repeat) for r in rows if (r["id"], k) not in done]
-    fn = call_jev if a.provider == "jev" else call_llm
     print(f"{a.dataset} via {a.provider}/{model}: {len(jobs)} calls ({len(done)} already done) -> {out.name}", file=sys.stderr)
     cost = 0.0; errs = 0; t0 = time.time()
+    if a.provider == "laya":
+        agent = load_laya(model, a.device)
+        with out.open("a") as f:
+            for i, (r, k) in enumerate(jobs, 1):
+                try:
+                    res = call_laya(agent, r["state"], questions, model)
+                except Exception as e:
+                    errs += 1; print(f"  ! {r['id']}: {e}", file=sys.stderr); continue
+                f.write(json.dumps({"id": r["id"], "repeat": k, "truth": r["truth"], **res}, ensure_ascii=False) + "\n"); f.flush()
+                if i % 25 == 0 or i == len(jobs):
+                    print(f"  {i}/{len(jobs)}  {int(time.time()-t0)}s  errors={errs}", file=sys.stderr)
+        return
+
+    fn = call_jev if a.provider == "jev" else call_llm
     with out.open("a") as f, ThreadPoolExecutor(a.concurrency) as ex:
         futs = {ex.submit(fn, r["state"], questions, model): (r, k) for r, k in jobs}
         for i, fut in enumerate(as_completed(futs), 1):
